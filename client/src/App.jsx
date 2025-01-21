@@ -1,19 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import HeroSection from './components/Hero/Hero'
-import Navbar from './components/Navbar/Navbar'
+import { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import './App.css';
+import HeroSection from './components/Hero/Hero';
+import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
+import ContactSection from './components/ContactSection/ContactSection';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
-    <div>
-      <Navbar />
-<HeroSection />
-    </div>
-  )
+    <Router> 
+      <div>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HeroSection />} />
+          <Route path="/contact" element={<ContactSection />} />
+       
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
+  );
 }
 
-export default App
+export default App;

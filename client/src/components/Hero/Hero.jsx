@@ -1,6 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import i1 from "./i1.jpg";
 import "./h.css"
+import About from '../About/About';
+import OurServices from '../OurServices/OurServices';
+import StatsSection from '../StatsSection/StatsSection';
+import PortfolioSection from '../portfolioItems/portfolioItems';
+import PlumbingSection from '../plumbing/plumbing';
 const HeroSection = () => {
     const [isVisible, setIsVisible] = useState(false);
     const sectionRef = useRef(null);
@@ -28,9 +33,10 @@ const HeroSection = () => {
     }, []);
   
     return (
+      <div>
       <div
         ref={sectionRef}
-        className={`relative bg-cover bg-center min-h-screen -mt-[72px] transition-transform duration-500 ease-in-out ${
+        className={`relative bg-cover bg-center min-h-screen  transition-transform duration-500 ease-in-out ${
           isVisible ? 'zoom-in' : ''
         }`}
         style={{
@@ -61,6 +67,12 @@ const HeroSection = () => {
             </div>
           </div>
         </div>
+        </div>
+        <About />
+        <OurServices />
+        <StatsSection />
+        <PlumbingSection />
+        <PortfolioSection />
       </div>
     );
   };

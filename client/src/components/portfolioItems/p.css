@@ -1,0 +1,26 @@
+/* Add this to your global CSS or component's stylesheet */
+
+/* Keyframes for the water flow effect */
+@keyframes waveFlow {
+    0% {
+      transform: scale(1) translateY(0);
+    }
+    50% {
+      transform: scale(1.05) translateY(-5px); /* Scale and move upwards like water flow */
+    }
+    100% {
+      transform: scale(1) translateY(0); /* Return to original position */
+    }
+  }
+  
+  /* Apply the wave effect on hover */
+  .group:hover img {
+    animation: waveFlow 4s ease-in-out infinite;
+    filter: blur(0.5px);  /* Slight blur for liquid feel */
+  }
+  
+  /* Optional - You can also add a slight blur effect to enhance the flowing water look */
+  .group:hover img {
+    filter: blur(0.8px);  /* Adds slight blur to the image during hover */
+  }
+  
