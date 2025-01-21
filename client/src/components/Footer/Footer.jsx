@@ -33,10 +33,10 @@ const Footer = () => {
     info@aquacare.me
   </a>
   <a 
-    href="tel:+97317400690" 
+    href="tel:+97339390050" 
     className="block mt-4 hover:underline"
   >
-    +973 17400690
+    +973 39390050
   </a>
 </div>
 
@@ -46,10 +46,10 @@ const Footer = () => {
             <h2 className="text-lg font-semibold mb-4">Links</h2>
             <ul className="space-y-4">
               <li><a href="/" className="hover:underline">Home</a></li>
-              <li><a href="#" className="hover:underline">Services</a></li>
-              <li><a href="#" className="hover:underline">About Us</a></li>
-              <li><a href="#" className="hover:underline">Shop</a></li>
-              <li><a href="#" className="hover:underline">Contact</a></li>
+              <li><a href="/#services" className="hover:underline">Services</a></li>
+              <li><a href="/#about" className="hover:underline">About Us</a></li>
+              <li><a href="/#portfolio" className="hover:underline">Portfolio</a></li>
+              <li><a href="/contact" className="hover:underline">Contact</a></li>
             </ul>
           </div>
 

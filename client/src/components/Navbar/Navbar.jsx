@@ -37,22 +37,22 @@ const Navbar = () => {
         isVisible ? 'translate-y-0' : '-translate-y-full'
       } ${
         isContactPage
-          ? 'bg-black shadow-lg'
+          ? 'bg-dblack shadow-lg'
           : isScrolled
-          ? 'bg-black bg-opacity-100 shadow-lg'
+          ? 'bg-dblack bg-opacity-100 shadow-lg'
           : 'bg-transparent'
       }`}
     >
       {/* Top Navbar */}
-      <div className='bg-black'>
+      <div className='bg-dblack'>
         <div className='py-2 max-w-7xl mx-auto'>
           <div className='container mx-auto z-10 flex justify-between items-center'>
             {/* Left Side: Mobile number and address */}
             <div className='flex flex-wrap items-center space-x-6 z-10 -ml-4 relative top-1 text-white text-sm'>
               {/* Phone */}
-              <a href='tel:+97317400690' className='flex items-center hover:underline'>
+              <a href='tel:+97339390050' className='flex items-center hover:underline'>
                 <FaPhoneAlt className='mr-2' />
-                +973 17400690
+                +973 39390050
               </a>
 
               {/* Email */}

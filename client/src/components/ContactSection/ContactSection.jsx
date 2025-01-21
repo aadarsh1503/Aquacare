@@ -22,7 +22,7 @@ const ContactSection = () => {
               </div>
               <div className="flex items-center gap-4">
                 <FaPhoneAlt className="text-blue-500 text-lg" />
-                <p>+973 17400690, 39390050</p>
+                <p>+973 39390050</p>
               </div>
               <div className="flex items-center gap-4">
                 <FaEnvelope className="text-blue-500 text-lg" />
