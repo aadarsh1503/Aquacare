@@ -84,7 +84,7 @@ const OurServices = () => {
     speed: 1000,
     slidesToShow: 4,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     arrows: false,
     autoplaySpeed: 2000,
     pauseOnHover: false,
@@ -119,27 +119,35 @@ const OurServices = () => {
     
         <Slider {...settings}>
   {services.map((service) => (
-    <div key={service.id} className="px-2">
-      <div
-        onClick={() => setSelectedService(service)} // Set the selected service
-        className="cursor-pointer bg-gray-800 rounded-lg overflow-hidden shadow-md relative group"
+  <div key={service.id} className="px-2">
+  <div
+    onClick={() => setSelectedService(service)} // Set the selected service
+    className="cursor-pointer bg-gray-800 rounded-lg overflow-hidden shadow-md relative group"
+  >
+    <img
+      src={service.image}
+      alt={service.title}
+      className="w-full h-[370px] object-cover"
+    />
+    {/* Gradient overlay */}
+    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-0 group-hover:opacity-90 transition-opacity duration-300"></div>
+    {/* Heading and Preview Text */}
+    <div className="absolute inset-0 flex flex-col justify-end p-4 transition-transform duration-300 group-hover:transform group-hover:translate-y-[-30px]">
+      <h3
+        className="text-white relative top-9 text-lg font-bold overflow-hidden truncate"
+        title={service.title}
       >
-        <img
-          src={service.image}
-          alt={service.title}
-          className="w-full h-[370px] object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-0 group-hover:opacity-90 transition-opacity duration-300"></div>
-        <div className="absolute inset-0 flex justify-start items-end p-4 transition-transform duration-300 group-hover:transform group-hover:translate-y-[-20px]">
-          <h3
-            className="text-white text-lg font-bold justify-end text-left overflow-hidden truncate"
-            title={service.title}
-          >
-            {service.title}
-          </h3>
-        </div>
-      </div>
+        {service.title}
+      </h3>
+      {/* Preview text visible on hover */}
+      <p className="text-white text-sm relative top-8 mt-1 line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        {service.text.props
+          ? service.text.props.children[0].props.children.trim().split(".")[0]
+          : service.text.split(".")[0]}
+      </p>
     </div>
+  </div>
+</div>
   ))}
 </Slider>
 

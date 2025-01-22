@@ -13,7 +13,7 @@ const StatsSection = () => {
   ];
 
   return (
-<div ref={ref} className="bg-dblack text-tblack z-0 py-16 flex justify-center space-x-32">
+<div ref={ref} className="bg-dblack text-tblack z-0 py-16 -ml-5 flex justify-center space-x-32">
   {stats.map((stat, index) => (
     <div
       key={index}
