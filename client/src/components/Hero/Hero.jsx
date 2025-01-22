@@ -56,12 +56,12 @@ const HeroSection = () => {
           </div>
     
           {/* Right Content */}
-          <div className="flex flex-col font-poppins mt-0 lg:-mt-36 right-0 lg:right-10 relative space-y-6 items-end">
-            <p className="text-gray-100 hidden lg:block relative left-0 lg:left-3 text-lg text-left">
-              Adipiscing elit, sed do eiusmod tempor<br /> incididunt ut labore et dolore magna aliqua.<br /> Ut enim ad minim veniam, quis nostrud.
+          <div className="flex flex-col font-poppins mt-0 lg:-mt-36 right-0 lg:right-1 relative space-y-6 items-end">
+            <p className="text-gray-100 hidden lg:block relative left-0 lg:-left-8  text-lg ">
+            AQUA CARE, A PROFESSIONAL <br />  PLUMBING AND QUALITY SERVICE <br /> WITH REASONABLE PRICE
             </p>
             <p className="text-gray-100 lg:hidden relative left-0 lg:left-3 text-lg bottom-32 text-left">
-              Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
+            AQUA CARE, A PROFESSIONAL PLUMBING AND QUALITY SERVICE WITH REASONABLE PRICE
             </p>
             <div className="flex relative lg:bottom-0 bottom-20 space-x-4">
               <button className="lg:px-6 px-3 py-1 lg:py-3 text-sm bg-dyellow text-black font-semibold hover:bg-white">
