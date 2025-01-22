@@ -6,6 +6,7 @@ import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import ContactSection from './components/ContactSection/ContactSection';
 import MobileNavbar from './components/MobileNavbar/MobileNavbar';
+import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HeroSection />} />
           <Route path="/contact" element={<ContactSection />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
        
         </Routes>
         <Footer />

@@ -9,7 +9,8 @@ import { useLocation } from 'react-router-dom'; // For React Router
 const Navbar = () => {
   const location = useLocation(); // For React Router
   
-  const isContactPage = location.pathname === '/contact'; // For React Router
+  const isContactPage = location.pathname === '/contact' || location.pathname === '/privacy-policy';
+
   const [isVisible, setIsVisible] = useState(true); // State to track visibility of navbar
   const [prevScrollPos, setPrevScrollPos] = useState(0); // State to track previous scroll position
   const [isScrolled, setIsScrolled] = useState(false); // State to track if the user has scrolled

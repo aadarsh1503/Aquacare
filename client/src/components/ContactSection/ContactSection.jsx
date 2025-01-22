@@ -88,7 +88,7 @@ const ContactSection = () => {
                 <div className="flex items-center gap-2">
                   <input type="checkbox" id="privacy" />
                   <label htmlFor="privacy" className="text-black text-sm">
-                    I agree to your <a href="#" className="text-blue-500 underline">privacy policy</a>.
+                    I agree to your <a href="/privacy-policy" className="text-blue-500 underline">privacy policy</a>.
                   </label>
                 </div>
               </div>
