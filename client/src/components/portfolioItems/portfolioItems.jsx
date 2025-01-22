@@ -43,7 +43,7 @@ const PortfolioSection = () => {
   return (
     <div id='portfolio' className="bg-dblack py-12">
         <h1 className='text-center text-white text-3xl mb-10  '>PORTFOLIOS</h1>
-      <div className="container max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
+      <div className="container max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {portfolioItems.map((item, index) => (
           <div key={index} className="rounded-lg overflow-hidden">
             {/* Image container */}
@@ -51,7 +51,7 @@ const PortfolioSection = () => {
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-full h-[530px] object-cover transition-all duration-700 ease-in-out transform group-hover:wave-effect"
+                className="w-full h-[430px] object-cover transition-all duration-700 ease-in-out transform group-hover:wave-effect"
               />
             </div>
             {/* Text container outside the image div */}

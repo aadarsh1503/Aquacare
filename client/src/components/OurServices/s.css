@@ -1,0 +1,5 @@
+/* Customizing Slick Carousel Dots */
+.slick-dots li button:before {
+    color: white !important; /* Set dot color to white */
+  }
+  
