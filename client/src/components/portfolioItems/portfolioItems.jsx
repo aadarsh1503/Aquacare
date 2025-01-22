@@ -51,7 +51,7 @@ const PortfolioSection = () => {
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-full h-[430px] object-cover transition-all duration-700 ease-in-out transform group-hover:wave-effect"
+                className="w-full lg:p-0 p-4 h-[430px] object-cover transition-all duration-700 ease-in-out transform group-hover:wave-effect"
               />
             </div>
             {/* Text container outside the image div */}

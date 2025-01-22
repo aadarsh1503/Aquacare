@@ -32,7 +32,7 @@ const ContactSection = () => {
           </div>
 
           {/* Right Side (Form) */}
-          <div className="flex-1 p-8 rounded-md">
+          <div className="flex-1 lg:p-8 p-0 lg:mt-0 mt-6 rounded-md">
             <form className="space-y-14">
               <div className="grid grid-cols-2 gap-4">
                 <div className="flex items-center gap-2 border-b pb-2">

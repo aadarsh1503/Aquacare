@@ -33,7 +33,7 @@ const Navbar = () => {
 
   return (
     <div
-      className={`z-10 fixed top-0 left-0 w-full transition-transform duration-300 ${
+      className={`z-10 fixed hidden lg:block top-0 left-0 w-full transition-transform duration-300 ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
       } ${
         isContactPage
@@ -102,7 +102,7 @@ const Navbar = () => {
         <div className='container mx-auto flex justify-between items-center'>
           {/* Logo */}
           <a href='/' className='flex items-center z-10 space-x-2'>
-            <img src={logo} alt='Logo' className='h-10' />
+            <img src={logo} alt='Logo' className='h-16 w-full' />
           </a>
 
           {/* Navbar Menu */}

@@ -1,5 +1,5 @@
 import React from 'react'
-import i1 from "./i1.jpg"
+import i1 from "./i1.png"
 const About = () => {
   return (
     <div id='about' className="bg-dblack">
@@ -9,21 +9,21 @@ const About = () => {
         <img 
           src={i1} 
           alt="Email Design Preview" 
-          className="max-w-full h-[532px] rounded-md" 
+          className="lg:max-w-full h-[200px] lg:h-[500px] rounded-md" 
         />
       </div>
   
       {/* Right Side Content */}
       <div className="md:w-1/2 text-center justify-start md:text-left">
-        <h1 className="font-semibold text-2xl text-white text-center relative bottom-10 lg:text-3xl mb-8">
+        <h1 className="font-semibold text-2xl text-white text-center relative bottom-10 lg:mt-0 mt-10 lg:text-3xl mb-8">
           ABOUT US
         </h1>
-        <p className="mt-4 max-w-3xl relative left-10 bottom-10 text-white text-lg">
+        <p className="mt-4 max-w-3xl relative left-0 lg:left-10 bottom-10 text-white text-lg">
           Aqua care services are the leading maintenance and refurbishment 
           contractors to the wet leisure industry. With a skilled team of highly 
           trained engineers and access to the widest range of products available.
         </p>
-        <p className='mt-4 max-w-3xl relative left-10 bottom-10 text-white text-lg'> Our engineers are strategically situated around Bahrain to ensure a quick, reliable service nationwide to private, commercial and local authority clientele. Specialists in the supply, installation and maintenance of commercial and residential Plumbing work ,swimming pools, Saunas, Steam room, Jacuzzi, Fountains and also other water features</p>
+        <p className='mt-4 max-w-3xl relative left-0 lg:left-10 lg:mb-0 mb- bottom-10 text-white text-lg'> Our engineers are strategically situated around Bahrain to ensure a quick, reliable service nationwide to private, commercial and local authority clientele. Specialists in the supply, installation and maintenance of commercial and residential Plumbing work ,swimming pools, Saunas, Steam room, Jacuzzi, Fountains and also other water features</p>
       </div>
     </div>
   </div>
