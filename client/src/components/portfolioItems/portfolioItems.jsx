@@ -2,7 +2,7 @@ import React from 'react';
 import i1 from "./i1.jpg";
 import i2 from "./i2.jpg";
 import i3 from "./i3.jpg";
-import i4 from "./i4.webp";
+import i4 from "../../assets/images/i4.webp";
 import i5 from "./i5.jpeg";
 import i6 from "./i6.jpg";
 

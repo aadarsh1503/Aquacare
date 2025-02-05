@@ -84,7 +84,7 @@ const Navbar = () => {
                 <AiOutlineInstagram className='text-2xl hover:text-dyellow' />
               </a>
               <a
-                href='https://www.facebook.com/Aquacare-879967648833312/'
+                href='https://www.facebook.com/profile.php?id=61572486478720'
                 target='_blank'
                 rel='noopener noreferrer'
               >

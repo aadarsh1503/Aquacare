@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import i1 from "./i1.jpg";
-import i3 from "./i3.jpg";
-import i4 from "./i4.jpg";
-import i5 from "./i5.jpg";
-import i6 from "./i6.jpg";
-import i2 from "./i2.jpg";
+import i1 from "./i1.webp";
+import i3 from "./i3.jpeg";
+import i4 from "./i4.avif";
+import i7 from "./i7.jpeg";
+import i5 from "./i5.jpeg";
+import i6 from "./i6.jpeg";
+
+
 import "./s.css";
 
 const OurServices = () => {
@@ -43,7 +45,7 @@ const OurServices = () => {
     {
       id: 3,
       title: "Plumbing Installations",
-      image: i2,
+      image: i7,
       text: "One of the most appreciated services that Aquacare very much proud of is the Plumbing installation and maintenance work. We are highly popular in the Contracting market with regard to creating the most exquisite Plumbing work and other impressive water features works. AQUACARE Maintenance offers a full design and installation service for all plumbing works such as Drainage, Sewerage, Water tanks, Environmental solution, Custom Plumbing, Gas fitting, Water main installation, Pipeline construcation and more",
     },
     {
@@ -147,7 +149,7 @@ const OurServices = () => {
       <img
         src={selectedService.image}
         alt={selectedService.title}
-        className="lg:w-full object-cover rounded-lg w-[332px] lg:w-1/2"
+        className=" object-cover rounded-lg w-[332px] lg:w-1/2"
       />
       <div className="mt-4 sm:mt-4 w-[300px] lg:w-full lg:mt-0 lg:ml-6 flex flex-col">
         <h3 className="text-xl sm:text-lg lg:text-2xl font-bold text-gray-800">

@@ -9,7 +9,7 @@ import MobileNavbar from './components/MobileNavbar/MobileNavbar';
 import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 
 function App() {
-  const [count, setCount] = useState(0);
+  
 
   return (
     <Router> 
