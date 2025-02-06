@@ -5,6 +5,7 @@ import i4 from "./i4.avif";
 import i7 from "./i7.jpeg";
 import i5 from "./i5.jpeg";
 import i6 from "./i6.jpeg";
+import i9 from "./i9.jpg";
 
 
 import "./s.css";
@@ -72,7 +73,7 @@ const OurServices = () => {
     {
       id: 6,
       title: "Splash Pads and Spray Parks",
-      image: i6,
+      image: i9,
       text: "A Spray Park is a water playground with a splash pad or other spray park products on a flat, water-permeable floor. Our Aqua care specialist, render you the installation, Maintenance, Repair and Service for splash pad on considering challenge the children to play with water in a safe and distinctive way.",
     },
   ];
@@ -95,7 +96,7 @@ const OurServices = () => {
               <img
                 src={service.image}
                 alt={service.title}
-                className="lg:w-full  h-[370px] object-fill"
+                className="lg:w-full  h-[370px] object-cover"
               />
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-0 group-hover:opacity-90 transition-opacity duration-300"></div>
