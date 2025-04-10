@@ -13,7 +13,7 @@ const ContactSection = () => {
             <h3 className="uppercase text-sm font-bold mb-2">Contact Us</h3>
             <h1 className="text-3xl font-bold mb-4">Have questions? Get in touch!</h1>
             <p className="text-gray-600 mb-6">
-              Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
+            We’re here to help. If you have any questions or need assistance, feel free to reach out.
             </p>
             <div className="space-y-4">
               <div className="flex items-center gap-4">
