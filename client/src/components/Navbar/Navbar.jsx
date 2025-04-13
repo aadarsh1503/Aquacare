@@ -77,7 +77,7 @@ const Navbar = () => {
             {/* Right Side: Social Icons */}
             <div className='flex space-x-4 relative top-1 text-white'>
               <a
-                href='https://www.instagram.com/aquacare514/'
+                href='https://instagram.com/aquacarebh'
                 target='_blank'
                 rel='noopener noreferrer'
               >
