@@ -7,7 +7,7 @@ import i4 from "./i4.jpg"
 
 const WaterFeatures = () => {
   return (
-    <section className="px-6 lg:px-20 mt-40 py-12 bg-gray-100 text-[#0a2b66]">
+    <section className="px-6 lg:px-20 lg:mt-40 mt-0 py-12 bg-gray-100 text-[#0a2b66]">
       <h2 className="text-3xl lg:text-5xl font-semibold mb-6">Water Features</h2>
       <p className="text-lg leading-8 mb-2">
       We render our client different water features take on many forms including Fountains, Water wall, reflection pools, cascades, waterfalls, rills, streams, formal pools, lakes and ponds. They bring life to architecture and landscape and the sight, sound and movement of water can transform a quiet, still space into a vibrant, stimulating environment. Aquacare’s creative use of water can create additional value to any project. Our fountain service lengthens the life of your fountain, maintaining the beauty and quality of your fountain.

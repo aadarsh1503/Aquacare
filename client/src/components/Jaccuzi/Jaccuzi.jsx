@@ -6,7 +6,7 @@ import i4 from "./i4.jpg"
 
 const Jaccuzi = () => {
   return (
-    <section className="px-6 lg:px-20 mt-40 py-12 bg-white text-[#0a2b66]">
+    <section className="px-6 lg:px-20 lg:mt-40 mt-0 py-12 bg-white text-[#0a2b66]">
       <h2 className="text-3xl lg:text-5xl font-semibold mb-6">Jacuzzi And Sauna</h2>
       <p className="text-lg leading-8 mb-2">
       The Installation team of Aqucare is always ready to make your leisure time to fully relax, chill out and rejuvenate in a quality Spa, Jacuzzi, steam room or sauna with Japanese style, European style, Arabian style, Asian classic style, and more styles that to suit all budgets.

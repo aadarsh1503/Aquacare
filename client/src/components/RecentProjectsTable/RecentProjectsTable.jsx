@@ -34,7 +34,7 @@ export default function RecentProjectsTable() {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
-      className="p-6 max-w-7xl mt-40 mx-auto"
+      className="p-6 max-w-7xl lg:mt-40 mt-0 mx-auto"
     >
       <h2 className="text-4xl font-bold text-center text-black mb-8">
         Some of Our Recent Projects

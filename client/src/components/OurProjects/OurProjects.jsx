@@ -127,7 +127,7 @@ export default function OurProject() {
   const rightProjects = projects.filter((p) => p.side === "right");
 
   return (
-    <section className="relative bg-white py-24 mt-32 overflow-hidden">
+    <section className="relative bg-white py-24 mt-0 lg:mt-32 overflow-hidden">
       {/* Section header */}
       <div className="container mx-auto px-6 text-center mb-20">
         <h2 className="text-5xl font-bold text-gray-900 mb-4 font-serif tracking-tight">
@@ -153,7 +153,7 @@ export default function OurProject() {
                 viewport={{ once: true }}
               >
     
-                <div className="bg-white rounded-xl w-[450px] shadow-2xl overflow-hidden transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-2">
+                <div className="bg-white rounded-xl w-full lg:w-[450px] shadow-2xl overflow-hidden transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-2">
                 <div className="h-80  overflow-hidden flex items-center justify-center">
   <img 
     src={project.image} 
@@ -193,7 +193,7 @@ export default function OurProject() {
           </div>
 
           {/* Right projects */}
-          <div className="flex flex-col gap-16 relative right-24 pt-32">
+          <div className="flex flex-col gap-16 relative right-0 lg:right-24 pt-32">
             {rightProjects.map((project, index) => (
               <motion.div
                 key={index}
@@ -204,7 +204,7 @@ export default function OurProject() {
                 viewport={{ once: true }}
               >
           
-                <div className="bg-white rounded-xl w-[450px] shadow-2xl overflow-hidden transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-2">
+                <div className="bg-white rounded-xl w-full lg:w-[450px] shadow-2xl overflow-hidden transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-2">
                   <div className="h-80 overflow-hidden">
                     <img 
                       src={project.image} 

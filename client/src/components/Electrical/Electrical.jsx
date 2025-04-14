@@ -4,7 +4,7 @@ import i2 from "./i2.jpg"
 
 const Electrical = () => {
   return (
-    <section className="px-6 lg:px-20 mt-40 py-12 bg-white text-[#0a2b66]">
+    <section className="px-6 lg:px-20 lg:mt-40 mt-0 py-12 bg-white text-[#0a2b66]">
       <h2 className="text-3xl lg:text-5xl font-semibold mb-6">Electrical</h2>
       <p className="text-lg leading-8 mb-4">
       Professional Electrical services are our forte. Troubleshooting wires, hanging chandeliers, lighting connections, socket issues & more. No job is too big or small for us. We equally enjoy small jobs as we do with large jobs.

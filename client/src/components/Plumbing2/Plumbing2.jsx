@@ -4,7 +4,7 @@ import i2 from "./i2.webp"
 
 const Plumbing2 = () => {
   return (
-    <section className="px-6 lg:px-20 mt-40 py-12 bg-white text-[#0a2b66]">
+    <section className="px-6 lg:px-20 lg:mt-40 mt-0 py-12 bg-white text-[#0a2b66]">
       <h2 className="text-3xl lg:text-5xl font-semibold mb-6">Plumbing</h2>
       <p className="text-lg leading-8 mb-4">
       We do all Plumbing jobs big or small, including solving problems with clogged drains, drainage smell issues, fitting new sanitary ware, updating silicone, water heaters replacements & repairs among many other interesting issues a resident can encounter. You can be assured of a professional finish.

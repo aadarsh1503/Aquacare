@@ -6,7 +6,7 @@ import i4 from "./i4.jpeg"
 
 const SplashPads = () => {
   return (
-    <section className="px-6 lg:px-20 mt-40 py-12 bg-white text-[#0a2b66]">
+    <section className="px-6 lg:px-20 lg:mt-40 mt-0 py-12 bg-white text-[#0a2b66]">
       <h2 className="text-3xl lg:text-5xl font-semibold mb-6">Splash Pads & SprayPark</h2>
       <p className="text-lg leading-8 mb-2">
       A Spray Park is a water playground with a splash pad or other spray park products on a flat, water-permeable floor. Our Aqua care specialist, render you the installation, Maintenance, Repair and Service for splash pad on considering challenge the children to play with water in a safe and distinctive way.

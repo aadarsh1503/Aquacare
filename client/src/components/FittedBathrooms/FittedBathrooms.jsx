@@ -13,7 +13,7 @@ import i8 from "./i8.jpg"
 
 const FittedBathrooms = () => {
   return (
-    <section className="px-6 lg:px-20 mt-40 py-12  text-[#0a2b66]">
+    <section className="px-6 lg:px-20 lg:mt-40 mt-0 py-12  text-[#0a2b66]">
       <h2 className="text-3xl lg:text-5xl max-w-6xl mx-auto font-semibold mb-6">Fitted Bathrooms</h2>
       <p className="text-lg leading-8 mb-2">
     
