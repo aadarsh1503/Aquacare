@@ -21,9 +21,7 @@ const SplashPads = () => {
       <div className="grid grid-cols-2 gap-4">
         {/* Fountain */}
         <div className="relative">
-          <div className="bg-green-500 text-white px-4 py-2 text-lg absolute top-0 left-0 z-10">
-            Japanese Spa
-          </div>
+         
           <img
             src={i1}
             alt="Fountain"
@@ -32,9 +30,7 @@ const SplashPads = () => {
         </div>
         {/* Cascades */}
         <div className="relative">
-          <div className="bg-cyan-800 text-white px-4 py-2 text-lg absolute top-0 left-0 z-10">
-            Indoor Sauna
-          </div>
+         
           <img
             src={i2}
             alt="Cascades"
@@ -47,9 +43,7 @@ const SplashPads = () => {
       <div className="grid grid-cols-2 gap-4 mt-4">
         {/* Water wall */}
         <div className="relative">
-          <div className="bg-green-500 text-white px-4 py-2 text-lg absolute top-0 left-0 z-10">
-            Arabian Jacuzzi
-          </div>
+         
           <img
             src={i3}
             alt="Water Wall"
@@ -58,9 +52,7 @@ const SplashPads = () => {
         </div>
         {/* Water falls */}
         <div className="relative">
-          <div className="bg-cyan-800 text-white px-4 py-2 text-lg absolute top-0 left-0 z-10">
-            French Jacuzzi
-          </div>
+        
           <img
             src={i4}
             alt="Water Falls"
