@@ -1,30 +1,46 @@
 import React, { useState, useEffect } from 'react';
 import { AiOutlineInstagram, AiOutlineFacebook } from 'react-icons/ai';
-import { FaPhoneAlt, FaMapMarkerAlt, FaEnvelope } from 'react-icons/fa';
+import { FaPhoneAlt, FaMapMarkerAlt, FaEnvelope, FaChevronDown } from 'react-icons/fa';
 import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import logo from './logo.png';
-import { useLocation } from 'react-router-dom'; // For React Router
+import { useLocation } from 'react-router-dom';
 
 const Navbar = () => {
-  const location = useLocation(); // For React Router
+  const location = useLocation();
   
-  const isContactPage = location.pathname === '/contact' || location.pathname === '/privacy-policy';
+  const isContactPage = location.pathname === '/contact' || 
+    location.pathname === '/privacy-policy' || 
+    location.pathname === '/construction&Maintenance' || 
+    location.pathname === '/electrical' || 
+    location.pathname === '/plumbing' || 
+    location.pathname === '/painting' || 
+    location.pathname === '/gypsum' || 
+    location.pathname === '/water-Features' || 
+    location.pathname === '/our-Projects' ||
+    location.pathname === '/swimmingPool' ||
+    location.pathname === '/jacuzzi&Sauna' ||
+    location.pathname === '/fittedBathrooms' ||
+    location.pathname === '/splashPads' ||
 
-  const [isVisible, setIsVisible] = useState(true); // State to track visibility of navbar
-  const [prevScrollPos, setPrevScrollPos] = useState(0); // State to track previous scroll position
-  const [isScrolled, setIsScrolled] = useState(false); // State to track if the user has scrolled
+
+    location.pathname === '/recent-Projects';
+
+  const [isVisible, setIsVisible] = useState(true);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isServicesHovered, setIsServicesHovered] = useState(false);
 
   const isActive = (path) => {
-    const currentPath = window.location.pathname - window.location.hash; // Combine pathname and hash
-    return currentPath === path; // Check if the combined path matches the target path
+    const currentPath = window.location.pathname - window.location.hash;
+    return currentPath === path;
   };
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
-      setIsScrolled(currentScrollPos > 50); // Check if the user scrolled past 50px
-      setIsVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10); // Show navbar on scroll up
+      setIsScrolled(currentScrollPos > 50);
+      setIsVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
       setPrevScrollPos(currentScrollPos);
     };
 
@@ -32,9 +48,27 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [prevScrollPos]);
 
+  // Services dropdown items
+  const servicesItems = [
+    { name: 'Construction & Maintenance', link: '/construction&Maintenance' },
+    { name: 'Electric', link: '/electrical' },
+    { name: 'Plumbing', link: '/plumbing' },
+    { name: 'Painting', link: '/painting' },
+    { name: 'Gypsum', link: '/gypsum' },
+    { name: 'Water Features', link: '/water-Features' },
+    { name: 'Swimming Pool', link: '/swimmingPool' },
+    { name: 'Jacuzzi And Sauna', link: '/jacuzzi&Sauna' },
+    { name: 'Splash Pads & SprayPark', link: '/splashPads' },
+    { name: 'Fitted Bathrooms', link: '/fittedBathrooms' }
+
+
+
+
+  ];
+
   return (
     <div
-      className={`z-10 fixed hidden lg:block top-0 left-0 w-full transition-transform duration-300 ${
+      className={`z-50 fixed hidden lg:block top-0 left-0 w-full transition-transform duration-300 ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
       } ${
         isContactPage
@@ -125,14 +159,40 @@ const Navbar = () => {
               >
                 About Us
               </a>
-              <a
-                href='/#services'
-                className={`border-b-2 mt-6 ${
-                  isActive('/#services') ? 'border-white' : 'border-transparent hover:border-white'
-                }`}
+              
+              {/* Services Dropdown */}
+              <div 
+                className="relative"
+                onMouseEnter={() => setIsServicesHovered(true)}
+                onMouseLeave={() => setIsServicesHovered(false)}
               >
-                Services
-              </a>
+                <div className={`flex items-center border-b-2  mt-6 ${
+                  isActive('/#services') || isServicesHovered ? 'border-white' : 'border-transparent hover:border-white'
+                }`}>
+                  <a
+                    href='/#services'
+                    className="mr-1"
+                  >
+                    Services
+                  </a>
+                  <FaChevronDown className="text-xs mt-1" />
+                </div>
+                
+                {isServicesHovered && (
+                  <div className="absolute -left-16  mt-2 rounded-xl top-10 w-64 bg-white shadow-lg  z-50">
+                    {servicesItems.map((service, index) => (
+                      <a
+                        key={index}
+                        href={service.link}
+                        className="block px-4 py-3 text-dblack hover:bg-gray-100 rounded-xl border-b border-gray-100 last:border-b-0"
+                      >
+                        {service.name}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+
               <a
                 href='/#portfolio'
                 className={`border-b-2 mt-6 ${

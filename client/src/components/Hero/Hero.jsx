@@ -64,12 +64,16 @@ const HeroSection = () => {
             AQUA CARE, A PROFESSIONAL PLUMBING AND QUALITY SERVICE WITH REASONABLE PRICE
             </p>
             <div className="flex relative lg:bottom-0 bottom-20 space-x-4">
+              <a href='/recent-Projects'>
               <button className="lg:px-6 px-3 py-1 lg:py-3 text-sm bg-dyellow text-black font-semibold hover:bg-white">
-                View Our Fixtures
+                View Our Recent Projects
               </button>
+              </a>
+              <a href='/our-Projects'>
               <button className="lg:px-6 px-3 py-1 lg:py-3 border text-sm border-white text-white font-semibold hover:bg-gray-100 hover:text-black">
-                Plumbing Parts
+                Our Projects
               </button>
+              </a>
             </div>
           </div>
         </div>
