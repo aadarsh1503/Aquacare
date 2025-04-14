@@ -6,7 +6,7 @@ const StatsSection = () => {
   const { ref, inView } = useInView({ triggerOnce: true });
 
   const stats = [
-    { label: "Products", endValue: 98 },
+    { label: "Projects", endValue: 98 },
     { label: "People", endValue: 65 },
     { label: "Years", endValue: 10 },
     { label: "Offices", endValue: 15 },

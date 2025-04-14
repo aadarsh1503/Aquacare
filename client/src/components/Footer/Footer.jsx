@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AiOutlineMail, AiOutlineArrowRight } from "react-icons/ai";
+import { AiOutlineMail, AiOutlineArrowRight, AiOutlineDown, AiOutlineUp } from "react-icons/ai";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import logo from "./logo.png";
@@ -7,6 +7,20 @@ import logo from "./logo.png";
 const Footer = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [email, setEmail] = useState("");
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+
+  const servicesItems = [
+    { name: 'Construction & Maintenance', link: '/construction&Maintenance' },
+    { name: 'Electric', link: '/electrical' },
+    { name: 'Plumbing', link: '/plumbing' },
+    { name: 'Painting', link: '/painting' },
+    { name: 'Gypsum', link: '/gypsum' },
+    { name: 'Water Features', link: '/water-Features' },
+    { name: 'Swimming Pool', link: '/swimmingPool' },
+    { name: 'Jacuzzi And Sauna', link: '/jacuzzi&Sauna' },
+    { name: 'Splash Pads & SprayPark', link: '/splashPads' },
+    { name: 'Fitted Bathrooms', link: '/fittedBathrooms' }
+  ];
 
   const handleCheckboxChange = (e) => {
     setIsChecked(e.target.checked);
@@ -25,6 +39,10 @@ const Footer = () => {
 
     toast.success("Email submitted successfully!");
     setEmail(""); // Clear email input field
+  };
+
+  const toggleServicesDropdown = () => {
+    setIsServicesOpen(!isServicesOpen);
   };
 
   return (
@@ -62,11 +80,41 @@ const Footer = () => {
               <li>
                 <a href="/" className="hover:underline">Home</a>
               </li>
-              <li>
-                <a href="/#services" className="hover:underline">Services</a>
+              <li className="relative">
+                <div 
+                  className="flex items-center hover:underline cursor-pointer"
+                  onClick={toggleServicesDropdown}
+                >
+                  <span>Services</span>
+                  {isServicesOpen ? (
+                    <AiOutlineUp className="ml-1" />
+                  ) : (
+                    <AiOutlineDown className="ml-1" />
+                  )}
+                </div>
+                {isServicesOpen && (
+                  <ul className="ml-4 mt-2 space-y-2">
+                    {servicesItems.map((service, index) => (
+                      <li key={index}>
+                        <a 
+                          href={service.link} 
+                          className="text-sm hover:underline block py-1"
+                        >
+                          {service.name}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </li>
               <li>
                 <a href="/#about" className="hover:underline">About Us</a>
+              </li>
+              <li>
+                <a href="/our-Projects" className="hover:underline">Our Projects</a>
+              </li>
+              <li>
+                <a href="/recent-Projects" className="hover:underline">Recent Projects</a>
               </li>
               <li>
                 <a href="/#portfolio" className="hover:underline">Portfolio</a>

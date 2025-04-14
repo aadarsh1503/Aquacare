@@ -159,7 +159,14 @@ const Navbar = () => {
               >
                 About Us
               </a>
-              
+              <a
+                href='/our-Projects'
+                className={`border-b-2 mt-6 ${
+                  isActive('/#portfolio') ? 'border-white' : 'border-transparent hover:border-white'
+                }`}
+              >
+                Our Projects
+              </a>
               {/* Services Dropdown */}
               <div 
                 className="relative"
