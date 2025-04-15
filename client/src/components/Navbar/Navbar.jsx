@@ -22,14 +22,13 @@ const Navbar = () => {
     location.pathname === '/jacuzzi&Sauna' ||
     location.pathname === '/fittedBathrooms' ||
     location.pathname === '/splashPads' ||
-
-
     location.pathname === '/recent-Projects';
 
   const [isVisible, setIsVisible] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isServicesHovered, setIsServicesHovered] = useState(false);
+  const [isProjectsHovered, setIsProjectsHovered] = useState(false);
 
   const isActive = (path) => {
     const currentPath = window.location.pathname - window.location.hash;
@@ -60,10 +59,12 @@ const Navbar = () => {
     { name: 'Jacuzzi And Sauna', link: '/jacuzzi&Sauna' },
     { name: 'Splash Pads & SprayPark', link: '/splashPads' },
     { name: 'Fitted Bathrooms', link: '/fittedBathrooms' }
+  ];
 
-
-
-
+  // Projects dropdown items
+  const projectsItems = [
+    { name: 'Our Projects', link: '/our-Projects' },
+    { name: 'Recent Projects', link: '/recent-Projects' }
   ];
 
   return (
@@ -159,21 +160,44 @@ const Navbar = () => {
               >
                 About Us
               </a>
-              <a
-                href='/our-Projects'
-                className={`border-b-2 mt-6 ${
-                  isActive('/#portfolio') ? 'border-white' : 'border-transparent hover:border-white'
-                }`}
+              
+              {/* Projects Dropdown */}
+              <div 
+                className="relative"
+                onMouseEnter={() => setIsProjectsHovered(true)}
+                onMouseLeave={() => setIsProjectsHovered(false)}
               >
-                Our Projects
-              </a>
+                <div className={`flex items-center border-b-2 mt-6 ${
+                  isActive('/our-Projects') || isActive('/recent-Projects') || isProjectsHovered ? 'border-white' : 'border-transparent hover:border-white'
+                }`}>
+                  <span className="mr-1">
+                    Projects
+                  </span>
+                  <FaChevronDown className="text-xs mt-1" />
+                </div>
+                
+                {isProjectsHovered && (
+                  <div className="absolute -left-10 mt-2 rounded-xl  top-10 w-48 bg-white shadow-lg z-50">
+                    {projectsItems.map((project, index) => (
+                      <a
+                        key={index}
+                        href={project.link}
+                        className="block px-4 py-3 text-dblack hover:bg-gray-100 rounded-xl border-b border-gray-100 last:border-b-0"
+                      >
+                        {project.name}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+
               {/* Services Dropdown */}
               <div 
                 className="relative"
                 onMouseEnter={() => setIsServicesHovered(true)}
                 onMouseLeave={() => setIsServicesHovered(false)}
               >
-                <div className={`flex items-center border-b-2  mt-6 ${
+                <div className={`flex items-center border-b-2 mt-6 ${
                   isActive('/#services') || isServicesHovered ? 'border-white' : 'border-transparent hover:border-white'
                 }`}>
                   <a
@@ -186,7 +210,7 @@ const Navbar = () => {
                 </div>
                 
                 {isServicesHovered && (
-                  <div className="absolute -left-16  mt-2 rounded-xl top-10 w-64 bg-white shadow-lg  z-50">
+                  <div className="absolute -left-16 mt-2 rounded-xl top-10 w-64 bg-white shadow-lg z-50">
                     {servicesItems.map((service, index) => (
                       <a
                         key={index}
