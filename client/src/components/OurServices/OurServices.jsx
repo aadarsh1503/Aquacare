@@ -6,6 +6,14 @@ import i7 from "./i7.jpeg";
 import i5 from "./i5.jpeg";
 import i6 from "./i6.jpeg";
 import i9 from "./i9.jpg";
+import i10 from "./i10.webp";
+import i11 from "./i11.webp";
+import i12 from "./i12.jpg";
+import i13 from "./i13.webp";
+import i14 from "./i14.png";
+
+
+
 
 
 import "./s.css";
@@ -14,6 +22,12 @@ const OurServices = () => {
   const [selectedService, setSelectedService] = useState(null);
 
   const services = [
+    {
+      id: 6,
+      title: "Construction & Maintenance",
+      image: i10,
+      text: "AquaCare Contracting is a specialist in the construction and maintenance industry, committed to delivering high-quality services tailored to client needs. We offer end-to-end solutions including civil works, paving, painting, aluminum fabrication, granite and tiling design, installation, and commissioning—adhering strictly to the latest standards and regulations. All services are also available under a Planned Preventative Maintenance program, ensuring long-term durability and seamless operation of your infrastructure."
+    },
     {
       id: 1,
       title: "Plumbing Contracting and Maintenance",
@@ -76,6 +90,37 @@ const OurServices = () => {
       image: i9,
       text: "A Spray Park is a water playground with a splash pad or other spray park products on a flat, water-permeable floor. Our Aqua care specialist, render you the installation, Maintenance, Repair and Service for splash pad on considering challenge the children to play with water in a safe and distinctive way.",
     },
+
+    {
+      id: 9,
+      title: "Electrical",
+      image: i11,
+      text: "AquaCare Contracting offers expert electrical services covering installation, maintenance, and upgrades for residential, commercial, and recreational facilities. Our skilled team ensures all electrical work is performed in compliance with the latest safety standards and regulations. From lighting and power systems to control panels and wiring, we provide reliable solutions under our Planned Preventative Maintenance program to ensure efficiency, safety, and long-term performance."
+    },
+    {
+      id: 10,
+      title: "Painting",
+      image: i12,
+      text: "AquaCare Contracting provides high-quality painting solutions for both interior and exterior surfaces across residential, commercial, and recreational spaces. Our services include surface preparation, waterproof coatings, decorative finishes, and protective painting—all executed with precision and care. We follow industry standards to ensure durability, aesthetic appeal, and long-lasting results. All painting services can also be included under our Planned Preventative Maintenance program for ongoing upkeep and protection."
+    },
+    {
+      id: 11,
+      title: "Gypsum",
+      image: i13,
+      text: "AquaCare Contracting offers expert gypsum works, providing customized solutions for ceilings, partitions, wall claddings, and decorative elements. Our team ensures precise installation using high-quality materials, delivering both aesthetic appeal and functional performance. Whether it's a modern design or a classic touch, we follow the latest standards and techniques. All gypsum services can also be included under our Planned Preventative Maintenance program to maintain long-term quality and appearance."
+    },
+    {
+      id: 12,
+      title: "Fitted Bathrooms",
+      image: i14,
+      text: "AquaCare Contracting specializes in the design, installation, and renovation of fitted bathrooms tailored to meet both functionality and style. Our services include plumbing, tiling, waterproofing, sanitary ware installation, and modern fixtures—all executed with attention to detail and quality craftsmanship. We ensure each project complies with the latest industry standards, delivering elegant and durable bathroom solutions. Maintenance services can also be included under our Planned Preventative Maintenance program for long-term reliability."
+    }
+    
+    
+    
+    
+    
+    
   ];
 
   return (
@@ -86,7 +131,8 @@ const OurServices = () => {
         </h2>
 
         {/* Grid Layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 w-[300px] lg:w-[1100px] mx-auto lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center w-[300px] lg:w-[1100px] mx-auto items-center relative">
+
           {services.map((service) => (
             <div
               key={service.id}

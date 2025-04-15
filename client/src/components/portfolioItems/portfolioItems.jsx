@@ -5,8 +5,18 @@ import i3 from "./i3.jpg";
 import i4 from "../../assets/images/i4.webp";
 import i5 from "./i5.jpeg";
 import i6 from "./i6.jpg";
+import i7 from "./i7.jpg";
+import i8 from "./i8.jpg";
+import i9 from "./i9.jpg";
+import i11 from "./i11.jpeg";
+
 
 const portfolioItems = [
+  {
+    image: i8,
+    title: 'CONSTRUCTION SERVICES',
+    category: '',
+  },
   {
     image: i1,
     title: 'FITTED BATHROOMS',
@@ -35,6 +45,22 @@ const portfolioItems = [
   {
     image: i6,
     title: 'WASTE DISPOSAL INSTALLATIONS',
+    category: '',
+  },
+    {
+    image:i7,
+    title: 'ELECTRICAL INSTALLATIONS',
+    category: '',
+  },
+
+  {
+    image: i9,
+    title: 'GYPSUM WORKS',
+    category: '',
+  },
+  {
+    image: i11,
+    title: 'PAINTING SERVICES',
     category: '',
   },
 ];

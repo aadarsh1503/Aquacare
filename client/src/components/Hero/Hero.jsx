@@ -51,14 +51,14 @@ const HeroSection = () => {
           {/* Left Content */}
           <div className="flex flex-col justify-center space-y-4 text-white">
             <h1 className="text-3xl lg:text-6xl mt-32 lg:mt-72 font-bold leading-tight">
-              Introducing<br /> our exclusive<br /> plumbing range
+            Introducing <br />Our Exclusive<br /> Range of Services
             </h1>
           </div>
     
           {/* Right Content */}
           <div className="flex flex-col font-poppins mt-0 lg:-mt-36 right-0 lg:right-1 relative space-y-6 items-end">
-            <p className="text-gray-100 hidden lg:block relative left-0 lg:-left-8  text-lg ">
-            AQUA CARE, A PROFESSIONAL <br />  PLUMBING AND QUALITY SERVICE <br /> WITH REASONABLE PRICE
+            <p className="text-gray-100 hidden lg:block relative left-0 lg:-left-16  text-lg ">
+            AQUA CARE – PROFESSIONAL & <br />QUALITY SERVICE AT A <br />REASONABLE PRICE
             </p>
             <p className="text-gray-100 lg:hidden relative left-0 lg:left-3 text-lg bottom-32 text-left">
             AQUA CARE, A PROFESSIONAL PLUMBING AND QUALITY SERVICE WITH REASONABLE PRICE

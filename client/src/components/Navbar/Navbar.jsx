@@ -99,7 +99,7 @@ const Navbar = () => {
 
               {/* Address */}
               <a
-                href='https://maps.google.com/?q=P.O Box: 54121, Manama, Kingdom of Bahrain'
+                href='https://www.google.com/maps?q=26.201798,50.533029'
                 target='_blank'
                 rel='noopener noreferrer'
                 className='flex items-center hover:underline'

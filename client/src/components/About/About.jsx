@@ -33,16 +33,15 @@ const About = () => {
             ABOUT US
           </h1>
           <p className="mt-4 max-w-3xl relative left-0 lg:left-10 bottom-10 text-white text-lg">
-            Aqua care services are the leading maintenance and refurbishment
-            contractors to the wet leisure industry. With a skilled team of highly
-            trained engineers and access to the widest range of products available.
+          Aqua Care Services is a leading maintenance and refurbishment contractor in the wet leisure industry. With a team of skilled engineers and access to a wide range of premium products, we deliver reliable solutions across Bahrain for both residential and commercial clients.
+
+
+
           </p>
           <p className="mt-4 max-w-3xl relative left-0 lg:left-10 lg:mb-0 mb- bottom-10 text-white text-lg">
-            Our engineers are strategically situated around Bahrain to ensure a quick,
-            reliable service nationwide to private, commercial and local authority
-            clientele. Specialists in the supply, installation and maintenance of
-            commercial and residential Plumbing work ,swimming pools, Saunas, Steam room,
-            Jacuzzi, Fountains and also other water features
+          We specialize in the supply, installation, and maintenance of Plumbing systems, Swimming Pools, Saunas, Steam Rooms, Jacuzzis, Fountains, and other water features. Our expertise also extends to Construction & Maintenance, Electrical works, Painting, Gypsum ceilings and partitions, and custom Fitted Bathrooms.
+
+All services can be provided under our Planned Preventative Maintenance program, ensuring long-term performance, safety, and client satisfaction.
           </p>
         </div>
       </div>
