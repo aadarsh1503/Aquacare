@@ -25,12 +25,12 @@ const projects = [
     image: y7,
     side: "right"
   },
-  {
-    title: "2 Storey Villa",
-    location: "Shela",
-    image: y8,
-    side: "left"
-  },
+  // {
+  //   title: "2 Storey Villa",
+  //   location: "Shela",
+  //   image: y8,
+  //   side: "left"
+  // },
   {
     title: "2 Storey Building",
     location: "Bahrain",
