@@ -51,7 +51,7 @@ const Footer = () => {
         <div className="flex flex-wrap justify-between">
           {/* Logo Section */}
           <div className="w-full sm:w-1/4 mb-6">
-            <img src={logo} alt="Plumbing Logo" className="h-16 w-auto" />
+            <img src={logo} alt="Plumbing Logo" className="h-24 w-auto" />
           </div>
 
           {/* Office Section */}

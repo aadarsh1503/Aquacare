@@ -2,101 +2,69 @@ import { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import f1 from "./f1.jpg";
-import f2 from "./f2.jpg";
-import f3 from "./f3.jpg";
-import f4 from "./f4.jpg";
-import f5 from "./f5.jpg";
-import f6 from "./f6.jpg";
-import f7 from "./f7.jpg";
-import f8 from "./f8.jpg";
-import f9 from "./f9.jpg";
-import f10 from "./f10.jpg";
-import f11 from "./f11.jpg";
-import f12 from "./f12.jpg";
-import f13 from "./f13.jpg";
-
-
-
+import y1 from "./y1.jpg";
+import y2 from "./y2.jpg";
+import y3 from "./y3.jpg";
+import y4 from "./y4.jpg";
+import y5 from "./y5.jpg";
+import y6 from "./y6.jpg";
+import y7 from "./y7.jpg";
+import y8 from "./y8.jpg";
+import y9 from "./y9.jpg";
 
 const projects = [
   {
-    title: "",
-    location: "Sanad",
-    image: f2,
+    title: "2 Story Villa",
+    location: "Saar",
+    image: y6,
     side: "left"
   },
   {
-    title: "",
-    location: "Sanad",
-    image: f1,
+    title: "2 Story Villa",
+    location: "ZaraSalman",
+    image: y7,
     side: "right"
   },
   {
     title: "2 Storey Villa",
-    location: "Janabiya - Al Taweel",
-    image: f3,
+    location: "Shela",
+    image: y8,
     side: "left"
   },
   {
-    title: "3 Storey Building",
-    location: "Jid Hafs - Aali Engg",
-    image: f4,
+    title: "2 Storey Building",
+    location: "Bahrain",
+    image: y4,
     side: "right"
   },
   {
-    title: "1 Storey Building",
-    location: "Shakora - Vision Gate",
-    image: f5,
+    title: "3 Storey Building",
+    location: "Bahrain",
+    image: y5,
     side: "left"
   },
   {
     title: "3 Storey Building",
-    location: "Jidd Ali",
-    image: f6,
+    location: "Bahrain",
+    image: y1,
     side: "right"
   },
   {
     title: " ",
-    location: "JidHafs",
-    image: f7,
+    location: "Bahrain",
+    image: y2,
     side: "left"
   },
   {
     title: " ",
     location: "Jid Ali",
-    image: f8,
-    side: "right"
-  },
- 
-  {
-    title: " ",
-    location: "Maqaba",
-    image: f10,
-    side: "left"
-  },
-  {
-    title: " ",
-    location: "Aali",
-    image: f11,
+    image: y3,
     side: "right"
   },
   {
     title: " ",
     location: "Maqaba",
-    image: f12,
-    side: "left"
-  },
-  {
-    title: " ",
-    location: "Aali",
-    image: f13,
-    side: "right"
-  },
-  {
-    title: " ",
-    location: "Aali",
-    image: f9,
+    image: y9,
     side: "left"
   },
 ];
@@ -152,17 +120,15 @@ export default function OurProject() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-    
                 <div className="bg-white rounded-xl w-full lg:w-[450px] shadow-2xl overflow-hidden transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-2">
-                <div className="h-80  overflow-hidden flex items-center justify-center">
-  <img 
-    src={project.image} 
-    alt={project.title}
-    className="min-w-full min-h-full mt-4 object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"
-  />
-</div>
-
-                  <div className="p-6">
+                  <div className="h-96 w-full overflow-hidden relative">
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="absolute h-full w-full object-fill rounded-t-xl transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  {/* <div className="p-6">
                     <h3 className="text-xl font-bold text-gray-900 mb-1">{project.title}</h3>
                     <p className="text-gray-600 flex items-center">
                       <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -170,7 +136,7 @@ export default function OurProject() {
                       </svg>
                       {project.location}
                     </p>
-                  </div>
+                  </div> */}
                 </div>
               </motion.div>
             ))}
@@ -203,16 +169,15 @@ export default function OurProject() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-          
                 <div className="bg-white rounded-xl w-full lg:w-[450px] shadow-2xl overflow-hidden transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-2">
-                  <div className="h-80 overflow-hidden">
+                  <div className="h-96 w-full overflow-hidden relative">
                     <img 
                       src={project.image} 
                       alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="absolute h-full w-full object-fill rounded-t-xl transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
-                  <div className="p-6">
+                  {/* <div className="p-6">
                     <h3 className="text-xl font-bold text-gray-900 mb-1">{project.title}</h3>
                     <p className="text-gray-600 flex items-center">
                       <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -220,7 +185,7 @@ export default function OurProject() {
                       </svg>
                       {project.location}
                     </p>
-                  </div>
+                  </div> */}
                 </div>
               </motion.div>
             ))}
