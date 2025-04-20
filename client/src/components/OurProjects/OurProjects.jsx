@@ -13,18 +13,18 @@ import y8 from "./y8.jpg";
 import y9 from "./y9.jpg";
 
 const projects = [
-  {
-    title: "2 Story Villa",
-    location: "Saar",
-    image: y6,
-    side: "left"
-  },
-  {
-    title: "2 Story Villa",
-    location: "ZaraSalman",
-    image: y7,
-    side: "right"
-  },
+  // {
+  //   title: "2 Story Villa",
+  //   location: "Saar",
+  //   image: y6,
+  //   side: "left"
+  // },
+  // {
+  //   title: "2 Story Villa",
+  //   location: "ZaraSalman",
+  //   image: y7,
+  //   side: "right"
+  // },
   // {
   //   title: "2 Storey Villa",
   //   location: "Shela",
