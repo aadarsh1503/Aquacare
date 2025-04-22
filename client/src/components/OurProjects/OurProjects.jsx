@@ -13,24 +13,24 @@ import y8 from "./y8.jpg";
 import y9 from "./y9.jpg";
 
 const projects = [
-  // {
-  //   title: "2 Story Villa",
-  //   location: "Saar",
-  //   image: y6,
-  //   side: "left"
-  // },
-  // {
-  //   title: "2 Story Villa",
-  //   location: "ZaraSalman",
-  //   image: y7,
-  //   side: "right"
-  // },
-  // {
-  //   title: "2 Storey Villa",
-  //   location: "Shela",
-  //   image: y8,
-  //   side: "left"
-  // },
+  {
+    title: "2 Story Villa",
+    location: "Saar",
+    image: y6,
+    side: "left"
+  },
+  {
+    title: "2 Story Villa",
+    location: "ZaraSalman",
+    image: y7,
+    side: "right"
+  },
+  {
+    title: "2 Storey Villa",
+    location: "Shela",
+    image: y8,
+    side: "left"
+  },
   {
     title: "2 Storey Building",
     location: "Bahrain",
@@ -121,7 +121,7 @@ export default function OurProject() {
                 viewport={{ once: true }}
               >
                 <div className="bg-white rounded-xl w-full lg:w-[450px] shadow-2xl overflow-hidden transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-2">
-                  <div className="h-96 w-full overflow-hidden relative">
+                  <div className="h-[420px] w-full overflow-hidden relative">
                     <img 
                       src={project.image} 
                       alt={project.title}
@@ -170,7 +170,7 @@ export default function OurProject() {
                 viewport={{ once: true }}
               >
                 <div className="bg-white rounded-xl w-full lg:w-[450px] shadow-2xl overflow-hidden transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-2">
-                  <div className="h-96 w-full overflow-hidden relative">
+                  <div className="h-[420px] w-full overflow-hidden relative">
                     <img 
                       src={project.image} 
                       alt={project.title}
