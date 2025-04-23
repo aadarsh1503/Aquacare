@@ -1,16 +1,1 @@
-/* Add zoom-in effect */
-@keyframes zoomIn {
-  0% {
-    background-size: 100%;  /* Start with the background at 100% */
-  }
-  100% {
-    background-size: 120%;  /* Zoom in to 120% */
-  }
-}
 
-/* Applying the zoom-in effect */
-.zoom-in {
-  animation: zoomIn 5s ease-in-out forwards;
-  background-size: cover;  /* Ensure the background starts as 'cover' */
-  background-position: center;  /* Keep the image centered */
-}
