@@ -83,7 +83,7 @@ const Navbar = () => {
     >
       {/* Top Navbar */}
       <div className={`${isScrolled ? 'bg-dblack/80 backdrop-blur-md' : isSpecialPage ? 'bg-dblack' : 'bg-dblack/80 backdrop-blur-md'}`}>
-        <div className='py-2  mx-auto'>
+        <div className='py-2 max-w-7xl  mx-auto'>
           <div className='container mx-auto z-10 flex justify-between items-center'>
             {/* Left Side: Mobile number and address */}
             <div className='flex flex-wrap items-center space-x-6 z-10 -ml-4 relative top-1 text-white text-sm'>
@@ -142,7 +142,7 @@ const Navbar = () => {
         ? 'bg-dblack/10 backdrop-blur-sm' 
         : 'bg-dblack/80 backdrop-blur-md'
 }`}>
-        <div className='container mx-auto flex justify-between items-center'>
+        <div className='container mx-auto max-w-7xl  flex justify-between items-center'>
           {/* Logo */}
           <a href='/' className='flex items-center z-10 space-x-2'>
             <img src={logo} alt='Logo' className='h-16 w-full' />
