@@ -72,7 +72,7 @@ const Navbar = () => {
 
   const projectsItems = [
     { name: 'Our Projects', link: '/our-Projects' },
-    { name: 'Recent Projects', link: '/recent-Projects' }
+    { name: 'All Projects', link: '/recent-Projects' }
   ];
 
   return (

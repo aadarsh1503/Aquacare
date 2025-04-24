@@ -128,7 +128,7 @@ export default function OurProject() {
                       className="absolute h-full w-full object-fill rounded-t-xl transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
-                  <div className="p-6">
+                  <div className="p-4">
                     <h3 className="text-xl font-bold text-gray-900 mb-1">{project.title}</h3>
                     <p className="text-gray-600 flex items-center">
                       <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -177,7 +177,7 @@ export default function OurProject() {
                       className="absolute h-full w-full object-fill rounded-t-xl transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
-                  <div className="p-6">
+                  <div className="p-4">
                     <h3 className="text-xl font-bold text-gray-900 mb-1">{project.title}</h3>
                     <p className="text-gray-600 flex items-center">
                       <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
