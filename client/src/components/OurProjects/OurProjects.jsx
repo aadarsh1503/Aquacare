@@ -14,56 +14,56 @@ import y9 from "./y9.jpg";
 
 const projects = [
   {
-    title: "2 Story Villa",
-    location: "Saar",
+    title: "",
+    location: "Tubli",
     image: y6,
     side: "left"
   },
   {
-    title: "2 Story Villa",
-    location: "ZaraSalman",
+    title: "",
+    location: "Aali",
     image: y7,
     side: "right"
   },
   {
-    title: "2 Storey Villa",
-    location: "Shela",
+    title: "",
+    location: "Tubli",
     image: y8,
     side: "left"
   },
   {
-    title: "2 Storey Building",
-    location: "Bahrain",
+    title: "",
+    location: "Sanabis",
     image: y4,
     side: "right"
   },
   {
-    title: "3 Storey Building",
-    location: "Bahrain",
+    title: "",
+    location: "Kawarah",
     image: y5,
     side: "left"
   },
   {
-    title: "3 Storey Building",
-    location: "Bahrain",
+    title: "",
+    location: "Maqaba",
     image: y1,
     side: "right"
   },
   {
     title: " ",
-    location: "Bahrain",
+    location: "Saar",
     image: y2,
     side: "left"
   },
   {
     title: " ",
-    location: "Jid Ali",
+    location: "Sehla",
     image: y3,
     side: "right"
   },
   {
     title: " ",
-    location: "Maqaba",
+    location: "Isa Town",
     image: y9,
     side: "left"
   },
@@ -97,7 +97,7 @@ export default function OurProject() {
   return (
     <section className="relative bg-white py-24 mt-0 lg:mt-32 overflow-hidden">
       {/* Section header */}
-      <div className="container mx-auto px-6 text-center mb-20">
+      <div className="container mx-auto px-6 text-center  lg:mb-20">
         <h2 className="text-5xl font-bold text-gray-900 mb-4 font-serif tracking-tight">
           Our <span className="">Projects</span>
         </h2>
@@ -128,7 +128,7 @@ export default function OurProject() {
                       className="absolute h-full w-full object-fill rounded-t-xl transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
-                  {/* <div className="p-6">
+                  <div className="p-6">
                     <h3 className="text-xl font-bold text-gray-900 mb-1">{project.title}</h3>
                     <p className="text-gray-600 flex items-center">
                       <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -136,7 +136,7 @@ export default function OurProject() {
                       </svg>
                       {project.location}
                     </p>
-                  </div> */}
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -159,7 +159,7 @@ export default function OurProject() {
           </div>
 
           {/* Right projects */}
-          <div className="flex flex-col gap-16 relative right-0 lg:right-24 pt-32">
+          <div className="flex flex-col gap-16 relative right-0 lg:right-24 pt-8 lg:pt-32">
             {rightProjects.map((project, index) => (
               <motion.div
                 key={index}
@@ -177,7 +177,7 @@ export default function OurProject() {
                       className="absolute h-full w-full object-fill rounded-t-xl transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
-                  {/* <div className="p-6">
+                  <div className="p-6">
                     <h3 className="text-xl font-bold text-gray-900 mb-1">{project.title}</h3>
                     <p className="text-gray-600 flex items-center">
                       <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -185,7 +185,7 @@ export default function OurProject() {
                       </svg>
                       {project.location}
                     </p>
-                  </div> */}
+                  </div>
                 </div>
               </motion.div>
             ))}

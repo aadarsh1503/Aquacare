@@ -26,6 +26,10 @@ const projects = [
   { year: "2022-2023", project: "Two Storey Villa", site: "Jablat", cost: "63.5 K" },
   { year: "2022-2023", project: "One Storey Villa", site: "Damistan", cost: "31.5 K" },
   { year: "2024-2025", project: "Two Storey Villa", site: "Damistan", cost: "39.4 K" },
+  { year: "2025-2026", project: "Two Storey Villa", site: "Jabala", cost: "85 K" },
+  { year: "2025-2026", project: "Two Storey Villa", site: "Sitra", cost: "55 K" },
+  { year: "2025-2026", project: "Two & Half Storey Villa", site: "Kamana", cost: "70 K" },
+
 ];
 
 export default function RecentProjectsTable() {
