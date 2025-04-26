@@ -10,6 +10,7 @@ import ie from "./ie.jpg"
 import ik from "./ik.jpg"
 import iss from "./iss.jpg"
 import il from "./il.jpg"
+import io from "./io.webp"
 import "./h.css"
 import About from '../About/About';
 import OurServices from '../OurServices/OurServices';
@@ -29,7 +30,7 @@ const HeroSection = () => {
       ie,
       is,
       ik,
-      iss,
+      io,
       il
     ];
 

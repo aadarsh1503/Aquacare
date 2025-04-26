@@ -80,10 +80,21 @@ const Navbar = () => {
       className={`z-50 fixed hidden lg:block top-0 left-0 w-full transition-transform duration-300 ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}
+      style={{
+        // Safari specific fixes
+        WebkitTransform: isVisible ? 'translateY(0)' : 'translateY(-100%)',
+        WebkitTransition: '-webkit-transform 300ms ease',
+      }}
     >
       {/* Top Navbar */}
-      <div className={`${isScrolled ? 'bg-dblack/80 backdrop-blur-md' : isSpecialPage ? 'bg-dblack' : 'bg-dblack/80 backdrop-blur-md'}`}>
-        <div className='py-2 max-w-7xl  mx-auto'>
+      <div 
+        className={`${isScrolled ? 'bg-dblack/80' : isSpecialPage ? 'bg-dblack' : 'bg-dblack/80'}`}
+        style={{
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)', // Safari specific
+        }}
+      >
+        <div className='py-2 max-w-7xl mx-auto'>
           <div className='container mx-auto z-10 flex justify-between items-center'>
             {/* Left Side: Mobile number and address */}
             <div className='flex flex-wrap items-center space-x-6 z-10 -ml-4 relative top-1 text-white text-sm'>
@@ -133,19 +144,25 @@ const Navbar = () => {
       </div>
 
       {/* Main Navbar */}
-      <nav className={`mx-auto py-4 ${
-  isScrolled 
-    ? 'bg-dblack/80 backdrop-blur-md' 
-    : isSpecialPage 
-      ? 'bg-dblack' 
-      : location.pathname === '/' 
-        ? 'bg-dblack/10 backdrop-blur-sm' 
-        : 'bg-dblack/80 backdrop-blur-md'
-}`}>
-        <div className='container mx-auto max-w-7xl  flex justify-between items-center'>
+      <nav 
+        className={`mx-auto py-4 ${
+          isScrolled 
+            ? 'bg-dblack/80' 
+            : isSpecialPage 
+              ? 'bg-dblack' 
+              : location.pathname === '/' 
+                ? 'bg-dblack/10' 
+                : 'bg-dblack/80'
+        }`}
+        style={{
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)', // Safari specific
+        }}
+      >
+        <div className='container mx-auto max-w-7xl flex justify-between items-center'>
           {/* Logo */}
           <a href='/' className='flex items-center z-10 space-x-2'>
-            <img src={logo} alt='Logo' className='h-16 w-full' />
+            <img src={logo} alt='Logo' className='h-16 w-full' style={{ objectFit: 'contain' }} />
           </a>
 
           {/* Navbar Menu */}
@@ -186,7 +203,13 @@ const Navbar = () => {
                 </div>
                 
                 {isProjectsHovered && (
-                  <div className="absolute -left-10 mt-2 rounded-xl top-10 w-48 bg-white/90 backdrop-blur-md shadow-lg z-50">
+                  <div 
+                    className="absolute -left-10 mt-2 rounded-xl top-10 w-48 bg-white/90 shadow-lg z-50"
+                    style={{
+                      backdropFilter: 'blur(12px)',
+                      WebkitBackdropFilter: 'blur(12px)', // Safari specific
+                    }}
+                  >
                     {projectsItems.map((project, index) => (
                       <a
                         key={index}
@@ -201,39 +224,44 @@ const Navbar = () => {
               </div>
 
               {/* Services Dropdown */}
-              
-<div 
-  className="relative"
-  onMouseEnter={() => setIsServicesHovered(true)}
-  onMouseLeave={() => setIsServicesHovered(false)}
->
-  <div className={`flex items-center mt-6 transition-colors ${
-    isServicesHovered || 
-    servicesItems.some(item => isActive(item.link)) ? '' : ''
-  }`}>
-    <a
-      href='/#services'
-      className="mr-1"
-    >
-      Services
-    </a>
-    <FaChevronDown className="text-xs mt-1" />
-  </div>
-  
-  {isServicesHovered && (
-    <div className="absolute -left-16 mt-2 rounded-xl top-10 w-64 bg-white/90 backdrop-blur-md shadow-lg z-50">
-      {servicesItems.map((service, index) => (
-        <a
-          key={index}
-          href={service.link}
-          className="block px-4 py-3 text-dblack hover:bg-gray-100/50 rounded-xl border-b border-gray-100 last:border-b-0 transition-colors"
-        >
-          {service.name}
-        </a>
-      ))}
-    </div>
-  )}
-</div>
+              <div 
+                className="relative"
+                onMouseEnter={() => setIsServicesHovered(true)}
+                onMouseLeave={() => setIsServicesHovered(false)}
+              >
+                <div className={`flex items-center mt-6 transition-colors ${
+                  isServicesHovered || 
+                  servicesItems.some(item => isActive(item.link)) ? '' : ''
+                }`}>
+                  <a
+                    href='/#services'
+                    className="mr-1"
+                  >
+                    Services
+                  </a>
+                  <FaChevronDown className="text-xs mt-1" />
+                </div>
+                
+                {isServicesHovered && (
+                  <div 
+                    className="absolute -left-16 mt-2 rounded-xl top-10 w-64 bg-white/90 shadow-lg z-50"
+                    style={{
+                      backdropFilter: 'blur(12px)',
+                      WebkitBackdropFilter: 'blur(12px)', // Safari specific
+                    }}
+                  >
+                    {servicesItems.map((service, index) => (
+                      <a
+                        key={index}
+                        href={service.link}
+                        className="block px-4 py-3 text-dblack hover:bg-gray-100/50 rounded-xl border-b border-gray-100 last:border-b-0 transition-colors"
+                      >
+                        {service.name}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
               <a
                 href="/#portfolio"
                 onClick={(e) => {
@@ -256,11 +284,6 @@ const Navbar = () => {
                 Request a Quote
               </a>
             </div>
-          </div>
-
-          {/* Mobile Menu */}
-          <div className='lg:hidden flex items-center space-x-4'>
-            <button className='text-white'>Menu</button>
           </div>
         </div>
       </nav>
