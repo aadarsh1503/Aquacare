@@ -80,30 +80,19 @@ const Navbar = () => {
       className={`z-50 fixed hidden lg:block top-0 left-0 w-full transition-transform duration-300 ${
         isVisible ? 'translate-y-0' : '-translate-y-full'
       }`}
-      style={{
-        // Safari specific fixes
-        WebkitTransform: isVisible ? 'translateY(0)' : 'translateY(-100%)',
-        WebkitTransition: '-webkit-transform 300ms ease',
-      }}
     >
       {/* Top Navbar */}
-      <div 
-        className={`${isScrolled ? 'bg-dblack/80' : isSpecialPage ? 'bg-dblack' : 'bg-dblack/80'}`}
-        style={{
-          backdropFilter: 'blur(12px)',
-          WebkitBackdropFilter: 'blur(12px)', // Safari specific
-        }}
-      >
-        <div className='py-2 max-w-7xl mx-auto'>
-          <div className='container mx-auto z-10 flex justify-between items-center'>
+      <div className={`${isScrolled ? 'bg-dblack/80 backdrop-blur-md' : isSpecialPage ? 'bg-dblack' : 'bg-dblack/80 backdrop-blur-md'}`}>
+        <div className='py-2 max-w-7xl mx-auto px-4'>
+          <div className='flex flex-col md:flex-row justify-between items-center'>
             {/* Left Side: Mobile number and address */}
-            <div className='flex flex-wrap items-center space-x-6 z-10 -ml-4 relative top-1 text-white text-sm'>
-              <a href='tel:+97339390050' className='flex items-center hover:hover:underline underline-offset-4 transition-colors'>
+            <div className='flex flex-wrap justify-center md:justify-start items-center space-x-2 md:space-x-6 z-10 text-white text-xs md:text-sm mb-2 md:mb-0'>
+              <a href='tel:+97339390050' className='flex items-center hover:underline underline-offset-4 transition-colors whitespace-nowrap'>
                 <FaPhoneAlt className='mr-2' />
                 +973 39390050
               </a>
 
-              <a href='mailto:info@aquacare.me' className='flex items-center hover:hover:underline underline-offset-4 transition-colors'>
+              <a href='mailto:info@aquacare.me' className='flex items-center hover:underline underline-offset-4 transition-colors whitespace-nowrap'>
                 <FaEnvelope className='mr-2' />
                 info@aquacare.me
               </a>
@@ -112,31 +101,31 @@ const Navbar = () => {
                 href='https://www.google.com/maps?q=26.201798,50.533029'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='flex items-center hover:hover:underline underline-offset-4 transition-colors'
+                className='flex items-center hover:underline underline-offset-4 transition-colors whitespace-nowrap'
               >
                 <FaMapMarkerAlt className='mr-2' />
-                P.O Box: 54121, Manama, Kingdom of Bahrain
+                P.O Box: 54121, Manama, Bahrain
               </a>
             </div>
 
             {/* Right Side: Social Icons */}
-            <div className='flex space-x-4 relative top-1 text-white'>
+            <div className='flex space-x-4 text-white'>
               <a
                 href='https://instagram.com/aquacarebh'
                 target='_blank'
                 rel='noopener noreferrer'
               >
-                <AiOutlineInstagram className='text-2xl hover:hover:underline underline-offset-4 transition-colors' />
+                <AiOutlineInstagram className='text-xl md:text-2xl hover:underline underline-offset-4 transition-colors' />
               </a>
               <a
                 href='https://www.facebook.com/profile.php?id=61572486478720'
                 target='_blank'
                 rel='noopener noreferrer'
               >
-                <AiOutlineFacebook className='text-2xl hover:hover:underline underline-offset-4 transition-colors' />
+                <AiOutlineFacebook className='text-xl md:text-2xl hover:underline underline-offset-4 transition-colors' />
               </a>
               <a href='https://x.com/aquacarebh' target='_blank' rel='noopener noreferrer'>
-                <FontAwesomeIcon icon={faXTwitter} className='text-2xl hover:hover:underline underline-offset-4 transition-colors' />
+                <FontAwesomeIcon icon={faXTwitter} className='text-xl md:text-2xl hover:underline underline-offset-4 transition-colors' />
               </a>
             </div>
           </div>
@@ -144,33 +133,27 @@ const Navbar = () => {
       </div>
 
       {/* Main Navbar */}
-      <nav 
-        className={`mx-auto py-4 ${
-          isScrolled 
-            ? 'bg-dblack/80' 
-            : isSpecialPage 
-              ? 'bg-dblack' 
-              : location.pathname === '/' 
-                ? 'bg-dblack/10' 
-                : 'bg-dblack/80'
-        }`}
-        style={{
-          backdropFilter: 'blur(12px)',
-          WebkitBackdropFilter: 'blur(12px)', // Safari specific
-        }}
-      >
-        <div className='container mx-auto max-w-7xl flex justify-between items-center'>
+      <nav className={`mx-auto py-4 ${
+        isScrolled 
+          ? 'bg-dblack/80 backdrop-blur-md' 
+          : isSpecialPage 
+            ? 'bg-dblack' 
+            : location.pathname === '/' 
+              ? 'bg-dblack/10 backdrop-blur-sm' 
+              : 'bg-dblack/80 backdrop-blur-md'
+      }`}>
+        <div className='container mx-auto max-w-7xl px-4 flex justify-between items-center'>
           {/* Logo */}
-          <a href='/' className='flex items-center z-10 space-x-2'>
-            <img src={logo} alt='Logo' className='h-16 w-full' style={{ objectFit: 'contain' }} />
+          <a href='/' className='flex items-center z-10'>
+            <img src={logo} alt='Logo' className='h-16 w-auto' />
           </a>
 
           {/* Navbar Menu */}
-          <div className='hidden lg:flex z-10 items-center justify-between text-white font-poppins text-17px'>
-            <div className='flex space-x-8'>
+          <div className='hidden lg:flex z-10 items-center text-white font-poppins text-base'>
+            <div className='flex items-center space-x-8'>
               <a
                 href='/'
-                className={`mt-6 hover:hover:underline underline-offset-4 transition-colors ${isActive('/') ? 'hover:underline underline-offset-4' : ''}`}
+                className={`hover:underline underline-offset-4 transition-colors ${isActive('/') ? 'underline underline-offset-4' : ''}`}
               >
                 Home
               </a>
@@ -180,8 +163,8 @@ const Navbar = () => {
                   e.preventDefault();
                   scrollToSection('about');
                 }}
-                className={`mt-6 hover:hover:underline underline-offset-4 transition-colors ${
-                  location.pathname === '/' && window.location.hash === '#about' ? 'hover:underline underline-offset-4 ' : ''
+                className={`hover:underline underline-offset-4 transition-colors ${
+                  location.pathname === '/' && window.location.hash === '#about' ? 'underline underline-offset-4' : ''
                 }`}
               >
                 About Us
@@ -193,7 +176,7 @@ const Navbar = () => {
                 onMouseEnter={() => setIsProjectsHovered(true)}
                 onMouseLeave={() => setIsProjectsHovered(false)}
               >
-                <div className={`flex items-center mt-6 cursor-pointer transition-colors ${
+                <div className={`flex items-center cursor-pointer transition-colors ${
                   isActive('/our-Projects') || isActive('/recent-Projects') || isProjectsHovered ? '' : ''
                 }`}>
                   <span className="mr-1">
@@ -203,13 +186,7 @@ const Navbar = () => {
                 </div>
                 
                 {isProjectsHovered && (
-                  <div 
-                    className="absolute -left-10 mt-2 rounded-xl top-10 w-48 bg-white/90 shadow-lg z-50"
-                    style={{
-                      backdropFilter: 'blur(12px)',
-                      WebkitBackdropFilter: 'blur(12px)', // Safari specific
-                    }}
-                  >
+                  <div className="absolute -left-10 mt-2 rounded-xl top-full w-48 bg-white/90 backdrop-blur-md shadow-lg z-50">
                     {projectsItems.map((project, index) => (
                       <a
                         key={index}
@@ -229,7 +206,7 @@ const Navbar = () => {
                 onMouseEnter={() => setIsServicesHovered(true)}
                 onMouseLeave={() => setIsServicesHovered(false)}
               >
-                <div className={`flex items-center mt-6 transition-colors ${
+                <div className={`flex items-center transition-colors ${
                   isServicesHovered || 
                   servicesItems.some(item => isActive(item.link)) ? '' : ''
                 }`}>
@@ -243,13 +220,7 @@ const Navbar = () => {
                 </div>
                 
                 {isServicesHovered && (
-                  <div 
-                    className="absolute -left-16 mt-2 rounded-xl top-10 w-64 bg-white/90 shadow-lg z-50"
-                    style={{
-                      backdropFilter: 'blur(12px)',
-                      WebkitBackdropFilter: 'blur(12px)', // Safari specific
-                    }}
-                  >
+                  <div className="absolute -left-16 mt-2 rounded-xl top-full w-64 bg-white/90 backdrop-blur-md shadow-lg z-50">
                     {servicesItems.map((service, index) => (
                       <a
                         key={index}
@@ -262,24 +233,25 @@ const Navbar = () => {
                   </div>
                 )}
               </div>
+              
               <a
                 href="/#portfolio"
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToSection('portfolio');
                 }}
-                className={`mt-6 hover:hover:underline underline-offset-4 transition-colors ${
-                  location.pathname === '/' && window.location.hash === '#portfolio' ? 'hover:underline underline-offset-4' : ''
+                className={`hover:underline underline-offset-4 transition-colors ${
+                  location.pathname === '/' && window.location.hash === '#portfolio' ? 'underline underline-offset-4' : ''
                 }`}
               >
                 Portfolio
               </a>
             </div>
 
-            <div className='ml-8 mt-6 font-poppins'>
+            <div className='ml-8 font-poppins'>
               <a
                 href='/contact'
-                className='px-6 py-3 bg-dpink text-white shadow-lg hover:bg-hpink hover:shadow-xl transition duration-300'
+                className='px-6 py-3 bg-dpink text-white shadow-lg hover:bg-hpink hover:shadow-xl transition duration-300 whitespace-nowrap'
               >
                 Request a Quote
               </a>
