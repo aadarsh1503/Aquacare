@@ -139,7 +139,7 @@ const Navbar = () => {
           : isSpecialPage 
             ? 'bg-dblack' 
             : location.pathname === '/' 
-              ? 'bg-dblack/10 backdrop-blur-sm' 
+              ? 'bg-dblack/30 backdrop-blur-sm' 
               : 'bg-dblack/80 backdrop-blur-md'
       }`}>
         <div className='container mx-auto max-w-7xl px-4 flex justify-between items-center'>
