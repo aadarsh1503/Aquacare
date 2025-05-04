@@ -186,7 +186,7 @@ const Navbar = () => {
                 </div>
                 
                 {isProjectsHovered && (
-                  <div className="absolute -left-10 mt-2 rounded-xl top-full w-48 bg-white/90 backdrop-blur-md shadow-lg z-50">
+                  <div className="absolute -left-10 mt-0 rounded-xl top-full w-48 bg-white/90 backdrop-blur-md shadow-lg z-50">
                     {projectsItems.map((project, index) => (
                       <a
                         key={index}
@@ -220,7 +220,7 @@ const Navbar = () => {
                 </div>
                 
                 {isServicesHovered && (
-                  <div className="absolute -left-16 mt-2 rounded-xl top-full w-64 bg-white/90 backdrop-blur-md shadow-lg z-50">
+                  <div className="absolute -left-16 mt-0 rounded-xl top-full w-64 bg-white/90 backdrop-blur-md shadow-lg z-50">
                     {servicesItems.map((service, index) => (
                       <a
                         key={index}
