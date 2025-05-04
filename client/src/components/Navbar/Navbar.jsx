@@ -31,30 +31,41 @@ const Navbar = () => {
   const [isProjectsHovered, setIsProjectsHovered] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollPos = window.pageYOffset;
-      setIsScrolled(currentScrollPos > 50);
-      setIsVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
-      setPrevScrollPos(currentScrollPos);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [prevScrollPos]);
+    // Handle scroll when landing on page with hash
+    if (location.pathname === '/' && window.location.hash) {
+      const section = window.location.hash.substring(1); // Remove the #
+      const target = document.querySelector(`[data-section="${section}"]`);
+      if (target) {
+        // Small timeout to ensure DOM is ready
+        setTimeout(() => {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, [location]);
 
   const scrollToSection = (section) => {
     if (location.pathname !== '/') {
+      // Navigate to home page with hash
       window.location.href = `/#${section}`;
+      // The actual scrolling will happen after the page loads
     } else {
+      // If already on home page, just scroll to section
       const target = document.querySelector(`[data-section="${section}"]`);
       if (target) {
         target.scrollIntoView({ behavior: 'smooth' });
+        // Update URL hash without page reload
+        window.history.pushState(null, null, `#${section}`);
       }
     }
   };
   
   const isActive = (path) => {
     return location.pathname === path;
+  };
+
+  const isSectionActive = (section) => {
+    return location.pathname === '/' && window.location.hash === `#${section}`;
   };
 
   const servicesItems = [
@@ -153,22 +164,16 @@ const Navbar = () => {
             <div className='flex items-center space-x-8'>
               <a
                 href='/'
-                className={`hover:underline underline-offset-4 transition-colors ${isActive('/') ? 'underline underline-offset-4' : ''}`}
+                className={`transition-colors ${isActive('/') ? '' : 'hover:text-gray-300'}`}
               >
                 Home
               </a>
-              <a
-                href="/#about"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection('about');
-                }}
-                className={`hover:underline underline-offset-4 transition-colors ${
-                  location.pathname === '/' && window.location.hash === '#about' ? 'underline underline-offset-4' : ''
-                }`}
-              >
-                About Us
-              </a>
+              <button
+  onClick={() => scrollToSection('about')}
+  className={`transition-colors ${isSectionActive('about') ? '' : 'hover:text-gray-300'}`}
+>
+  About Us
+</button>
               
               {/* Projects Dropdown */}
               <div 
@@ -177,7 +182,7 @@ const Navbar = () => {
                 onMouseLeave={() => setIsProjectsHovered(false)}
               >
                 <div className={`flex items-center cursor-pointer transition-colors ${
-                  isActive('/our-Projects') || isActive('/recent-Projects') || isProjectsHovered ? '' : ''
+                  isActive('/our-Projects') || isActive('/recent-Projects') ? '' : 'hover:text-gray-300'
                 }`}>
                   <span className="mr-1">
                     Projects
@@ -191,7 +196,9 @@ const Navbar = () => {
                       <a
                         key={index}
                         href={project.link}
-                        className="block px-4 py-3 text-dblack hover:bg-gray-100/50 rounded-xl border-b border-gray-100 last:border-b-0 transition-colors"
+                        className={`block px-4 py-3 text-dblack hover:bg-gray-100/50 rounded-xl border-b border-gray-100 last:border-b-0 transition-colors ${
+                          isActive(project.link) ? 'font-semibold' : ''
+                        }`}
                       >
                         {project.name}
                       </a>
@@ -208,14 +215,14 @@ const Navbar = () => {
               >
                 <div className={`flex items-center transition-colors ${
                   isServicesHovered || 
-                  servicesItems.some(item => isActive(item.link)) ? '' : ''
+                  servicesItems.some(item => isActive(item.link)) ? '' : 'hover:text-gray-300'
                 }`}>
-                  <a
-                    href='/#services'
+                  <button
+                    onClick={() => scrollToSection('services')}
                     className="mr-1"
                   >
                     Services
-                  </a>
+                  </button>
                   <FaChevronDown className="text-xs mt-1" />
                 </div>
                 
@@ -225,7 +232,9 @@ const Navbar = () => {
                       <a
                         key={index}
                         href={service.link}
-                        className="block px-4 py-3 text-dblack hover:bg-gray-100/50 rounded-xl border-b border-gray-100 last:border-b-0 transition-colors"
+                        className={`block px-4 py-3 text-dblack hover:bg-gray-100/50 rounded-xl border-b border-gray-100 last:border-b-0 transition-colors ${
+                          isActive(service.link) ? 'font-semibold' : ''
+                        }`}
                       >
                         {service.name}
                       </a>
@@ -234,18 +243,12 @@ const Navbar = () => {
                 )}
               </div>
               
-              <a
-                href="/#portfolio"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection('portfolio');
-                }}
-                className={`hover:underline underline-offset-4 transition-colors ${
-                  location.pathname === '/' && window.location.hash === '#portfolio' ? 'underline underline-offset-4' : ''
-                }`}
-              >
-                Portfolio
-              </a>
+              <button
+  onClick={() => scrollToSection('portfolio')}
+  className={`transition-colors ${isSectionActive('portfolio') ? '' : 'hover:text-gray-300'}`}
+>
+  Portfolio
+</button>
             </div>
 
             <div className='ml-8 font-poppins'>
