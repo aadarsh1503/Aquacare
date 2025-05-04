@@ -93,7 +93,7 @@ const Navbar = () => {
       }`}
     >
       {/* Top Navbar */}
-      <div className={`${isScrolled ? 'bg-dblack/80 backdrop-blur-md' : isSpecialPage ? 'bg-dblack' : 'bg-dblack/80 backdrop-blur-md'}`}>
+      <div className={`${isScrolled ? 'bg-dblack/30 backdrop-blur-md' : isSpecialPage ? 'bg-dblack' : 'bg-dblack/80 backdrop-blur-md'}`}>
         <div className='py-2 max-w-7xl mx-auto px-4'>
           <div className='flex flex-col md:flex-row justify-between items-center'>
             {/* Left Side: Mobile number and address */}
