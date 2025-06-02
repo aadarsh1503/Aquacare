@@ -158,9 +158,10 @@ const Footer = () => {
         </div>
 
         {/* Footer Bottom */}
-        <div className="mt-6 border-t border-gray-800 pt-4 text-left">
-          <p className="text-sm">Aquacare &copy; 2025. All Rights Reserved.</p>
-        </div>
+        <div className="mt-6 border-t border-gray-800 flex justify-center pt-4 text-left">
+  <p className="text-sm">Aquacare &copy; {new Date().getFullYear()}. All Rights Reserved.</p>
+</div>
+
       </div>
       <ToastContainer />
     </footer>
