@@ -26,19 +26,48 @@ const Footer = () => {
     setIsChecked(e.target.checked);
   };
 
-  const handleEmailSubmit = () => {
-    if (!isChecked) {
-      toast.error("Please agree to the Privacy Policy before submitting.");
-      return;
-    }
-
+  const handleEmailSubmit = async (e) => {
+    e.preventDefault();
+    
+    // First validate the email
     if (!email.trim()) {
       toast.error("Please enter a valid email address.");
       return;
     }
 
-    toast.success("Email submitted successfully!");
-    setEmail(""); // Clear email input field
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast.error("Please enter a valid email address.");
+      return;
+    }
+
+    // Then check if checkbox is checked
+    if (!isChecked) {
+      toast.error("Please agree to the Privacy Policy before submitting.");
+      return;
+    }
+
+    // Only proceed with submission if all validations pass
+    try {
+      const formData = new FormData();
+      formData.append('email', email);
+      formData.append('list', 'ihaKVEkFE9F6Q7d07nC9wQ'); // Replace with your actual Sendy list ID
+      formData.append('subform', 'yes');
+      formData.append('hp', ''); // Honeypot field
+
+      const response = await fetch('https://send.alzyara.com/subscribe', {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors',
+      });
+
+      toast.success("Thank you for subscribing!");
+      setEmail("");
+      setIsChecked(false); // Reset checkbox after successful submission
+    } catch (error) {
+      console.error('Error:', error);
+      toast.error("Subscription failed. Please try again.");
+    }
   };
 
   const toggleServicesDropdown = () => {
@@ -128,7 +157,7 @@ const Footer = () => {
           {/* Newsletter Section */}
           <div className="w-full sm:w-1/4 mb-6">
             <h2 className="text-lg font-semibold mb-4">Newsletter</h2>
-            <div className="flex items-center space-x-2 border-b border-gray-600 pb-2">
+            <form onSubmit={handleEmailSubmit} className="flex items-center space-x-2 border-b border-gray-600 pb-2">
               <AiOutlineMail className="text-xl" />
               <input
                 type="email"
@@ -136,12 +165,12 @@ const Footer = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter Your Email Address"
                 className="bg-transparent outline-none placeholder-gray-400 w-full"
+                required
               />
-              <AiOutlineArrowRight
-                className="text-xl cursor-pointer"
-                onClick={handleEmailSubmit}
-              />
-            </div>
+              <button type="submit">
+                <AiOutlineArrowRight className="text-xl cursor-pointer" />
+              </button>
+            </form>
             <div className="flex items-center mt-4">
               <input
                 type="checkbox"
@@ -149,6 +178,7 @@ const Footer = () => {
                 checked={isChecked}
                 onChange={handleCheckboxChange}
                 className="mr-2"
+                required
               />
               <label htmlFor="privacy" className="text-sm">
                 I agree to the <a href="/privacy-policy" className="underline">Privacy Policy</a>.
@@ -159,9 +189,8 @@ const Footer = () => {
 
         {/* Footer Bottom */}
         <div className="mt-6 border-t border-gray-800 flex justify-center pt-4 text-left">
-  <p className="text-sm">Aquacare &copy; {new Date().getFullYear()}. All Rights Reserved.</p>
-</div>
-
+          <p className="text-sm">Aquacare &copy; {new Date().getFullYear()}. All Rights Reserved.</p>
+        </div>
       </div>
       <ToastContainer />
     </footer>
