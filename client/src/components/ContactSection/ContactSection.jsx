@@ -1,7 +1,96 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaUserAlt, FaPen, FaPaperPlane } from "react-icons/fa";
 
 const ContactSection = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: '',
+    privacyAgreement: false
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showThankYou, setShowThankYou] = useState(false);
+  const [error, setError] = useState('');
+  const [privacyError, setPrivacyError] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value
+    }));
+    
+    // Reset privacy error when user checks the box
+    if (name === 'privacyAgreement' && checked) {
+      setPrivacyError(false);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError('');
+    
+    // Validate privacy agreement
+    if (!formData.privacyAgreement) {
+      setPrivacyError(true);
+      setError('Please agree to the privacy policy');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      // Format the complete message including all fields
+      const formattedMessage = `
+        New Contact Form Submission:
+        
+        Name: ${formData.name}
+        Email: ${formData.email}
+        Phone: ${formData.phone}
+        Subject: ${formData.subject}
+        Message: ${formData.message}
+      `;
+
+      const response = await fetch('https://aquacare.me/send_to_a_mail.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formattedMessage,
+          to: 'info@aquacare.me',
+          subject: `New Contact from ${formData.name} (${formData.email})`
+        })
+      });
+
+      if (response.ok) {
+        setShowThankYou(true);
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          subject: '',
+          message: '',
+          privacyAgreement: false
+        });
+        
+        setTimeout(() => setShowThankYou(false), 5000);
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setError('Failed to send message. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div>
       {/* Contact Section */}
@@ -13,7 +102,7 @@ const ContactSection = () => {
             <h3 className="uppercase text-sm font-bold mb-2">Contact Us</h3>
             <h1 className="text-3xl font-bold mb-4">Have questions? Get in touch!</h1>
             <p className="text-gray-600 mb-6">
-            We’re here to help. If you have any questions or need assistance, feel free to reach out.
+            We're here to help. If you have any questions or need assistance, feel free to reach out.
             </p>
             <div className="space-y-4">
               <div className="flex items-center gap-4">
@@ -33,22 +122,42 @@ const ContactSection = () => {
 
           {/* Right Side (Form) */}
           <div className="flex-1 lg:p-8 p-0 lg:mt-0 mt-6 rounded-md">
-            <form className="space-y-14">
+            {showThankYou && (
+              <div className="mb-4 p-4 bg-green-100 text-green-700 rounded-lg">
+                Thank you! Your message has been sent successfully.
+              </div>
+            )}
+            
+            {error && (
+              <div className="mb-4 p-4 bg-red-100 text-red-700 rounded-lg">
+                {error}
+              </div>
+            )}
+            
+            <form className="space-y-14" onSubmit={handleSubmit}>
               <div className="grid grid-cols-2 gap-4">
                 <div className="flex items-center gap-2 border-b pb-2">
                   <FaUserAlt className="text-black" />
                   <input
                     type="text"
+                    name="name"
                     placeholder="Name"
+                    value={formData.name}
+                    onChange={handleChange}
                     className="w-full outline-none bg-tblue text-black"
+                    required
                   />
                 </div>
                 <div className="flex items-center gap-2 border-b pb-2">
                   <FaEnvelope className="text-black" />
                   <input
                     type="email"
+                    name="email"
                     placeholder="Email Address"
+                    value={formData.email}
+                    onChange={handleChange}
                     className="w-full outline-none bg-tblue text-black"
+                    required
                   />
                 </div>
               </div>
@@ -57,37 +166,63 @@ const ContactSection = () => {
                   <FaPhoneAlt className="text-black" />
                   <input
                     type="tel"
+                    name="phone"
                     placeholder="Phone"
+                    value={formData.phone}
+                    onChange={handleChange}
                     className="w-full outline-none bg-tblue text-black"
+                    required
                   />
                 </div>
                 <div className="flex items-center gap-2 border-b pb-2">
                   <FaPen className="text-black" />
                   <input
                     type="text"
+                    name="subject"
                     placeholder="Subject"
+                    value={formData.subject}
+                    onChange={handleChange}
                     className="w-full outline-none bg-tblue text-black"
+                    required
                   />
                 </div>
               </div>
               <div className="flex items-start gap-2 border-b pb-2">
                 <FaPen className="text-black mt-1" />
                 <textarea
+                  name="message"
                   placeholder="How can we help you? Feel free to get in touch!"
+                  value={formData.message}
+                  onChange={handleChange}
                   className="w-full outline-none bg-tblue text-black"
+                  required
                 />
               </div>
               <div className="flex items-center gap-4">
                 <button
                   type="submit"
-                  className="flex items-center gap-2 bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition"
+                  disabled={isSubmitting || !formData.privacyAgreement}
+                  className={`flex items-center gap-2 text-white px-6 py-2 rounded-md transition ${
+                    formData.privacyAgreement 
+                      ? 'bg-blue-500 hover:bg-blue-600' 
+                      : 'bg-gray-400 cursor-not-allowed'
+                  } ${
+                    isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
+                  }`}
                 >
                   <FaPaperPlane />
-                  Get in Touch
+                  {isSubmitting ? 'Sending...' : 'Get in Touch'}
                 </button>
                 <div className="flex items-center gap-2">
-                  <input type="checkbox" id="privacy" />
-                  <label htmlFor="privacy" className="text-black text-sm">
+                  <input 
+                    type="checkbox" 
+                    id="privacy" 
+                    name="privacyAgreement"
+                    checked={formData.privacyAgreement}
+                    onChange={handleChange}
+                    className={privacyError ? 'border-red-500' : ''}
+                  />
+                  <label htmlFor="privacy" className={`text-black text-sm ${privacyError ? 'text-red-500' : ''}`}>
                     I agree to your <a href="/privacy-policy" className="text-blue-500 underline">privacy policy</a>.
                   </label>
                 </div>
