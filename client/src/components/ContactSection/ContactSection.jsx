@@ -212,7 +212,7 @@ const ContactSection = () => {
       {/* Map Section */}
       <div className="w-full h-96 mt-32">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14435.236249565674!2d50.5237206!3d26.1868843!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49afd0213a19d3%3A0x2f892ffe9e6f0385!2sGlobal%20Vision%20Solutions!5e0!3m2!1sen!2sin!4v1731936574918!5m2!1sen!2sin"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3580.301096553552!2d50.5237306!3d26.1868819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49afb7126ad44f%3A0xc09335f21e7729c4!2sAquacare!5e0!3m2!1sen!2sin!4v1753111101370!5m2!1sen!2sin"
           width="100%"
           height="100%"
           style={{ border: 0 }}
