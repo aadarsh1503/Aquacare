@@ -70,7 +70,7 @@ const ContactSection = () => {
   };
 
   return (
-    <div className="relative bg-gray-50 overflow-hidden mt-[200px]">
+    <div className="relative  overflow-hidden mt-[200px]">
       {/* Aurora Background */}
       <div aria-hidden="true" className="absolute inset-0 z-0">
         <div className="absolute top-0 left-0 w-[40rem] h-[40rem] bg-cyan-200/40 rounded-full blur-3xl opacity-40 -translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
