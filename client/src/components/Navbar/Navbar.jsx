@@ -156,7 +156,7 @@ const Navbar = () => {
         <div className='container mx-auto max-w-7xl px-4 flex justify-between items-center'>
           {/* Logo */}
           <a href='/' className='flex items-center z-10'>
-            <img src={logo} alt='Logo' className='h-16 w-auto' />
+            <img src="L1.png" alt='Logo' className='h-16 w-auto' />
           </a>
 
           {/* Navbar Menu */}

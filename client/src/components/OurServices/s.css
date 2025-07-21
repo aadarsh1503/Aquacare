@@ -1,5 +1,46 @@
-/* Customizing Slick Carousel Dots */
-.slick-dots li button:before {
-    color: white !important; /* Set dot color to white */
-  }
-  
+/* s.css */
+
+/* --- Futuristic Background Grid --- */
+.futuristic-services-bg {
+  /* Creates a grid pattern with very faint yellow lines */
+  background-image: 
+    linear-gradient(to right, rgba(255, 204, 0, 0.05) 1px, transparent 1px), 
+    linear-gradient(to bottom, rgba(255, 204, 0, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  position: relative;
+}
+
+/* --- Glowing Border Effect for Cards --- */
+.futuristic-card {
+  position: relative;
+  overflow: hidden; /* Important for containing the glow */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: border-color 0.3s ease-in-out;
+}
+
+.futuristic-card:hover {
+  border-color: rgba(255, 204, 0, 0.7); /* Your dyellow color */
+  /* Adds a neon box-shadow on hover for a glow effect */
+  box-shadow: 0 0 15px rgba(255, 204, 0, 0.3), 0 0 30px rgba(255, 204, 0, 0.2);
+}
+
+/* --- Custom Scrollbar for Modal --- */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #ffcc00; /* Your dyellow color */
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #ffffff;
+}

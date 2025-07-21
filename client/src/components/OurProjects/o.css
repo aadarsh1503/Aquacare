@@ -1,0 +1,12 @@
+/* OurProject.css - Clean-Tech Light Edition */
+
+/* Dashed connector line for the project cards */
+.project-connector {
+    position: absolute;
+    top: 50%;
+    height: 2px;
+    width: 3rem; /* 48px */
+    background-image: linear-gradient(to right, #9ca3af 50%, transparent 50%); /* gray-400 */
+    background-size: 8px 2px; /* Controls dash length and gap */
+    background-repeat: repeat-x;
+  }

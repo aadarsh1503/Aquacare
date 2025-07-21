@@ -1,0 +1,37 @@
+/* aboutus css */
+
+/* Defines the animation for the running lines */
+@keyframes run-lines {
+    from {
+      /* Starts at the beginning */
+      background-position: 0% 0;
+    }
+    to {
+      /* Moves horizontally to create the motion effect */
+      /* 200% is used for a seamless loop with a background-size of 200% */
+      background-position: 200% 0;
+    }
+  }
+  
+  /* This class creates the background layer with the running lines */
+  .about-background-lines {
+    position: absolute;
+    inset: 0;
+    /* z-index: 0 places it at the very back */
+    z-index: 0; 
+    
+    /* Creates a pattern of 1px tall, faint white lines with space between them */
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 80px,
+      rgba(129, 129, 129, 0.047) 80px, 
+      rgba(255, 255, 255, 0.03) 81px
+    );
+    
+    /* Makes the background pattern twice as wide to ensure the animation loops smoothly */
+    background-size: 200% 100%;
+    
+    /* Applies the 'run-lines' animation. Make the duration smaller (e.g., 5s) for a faster effect. */
+    animation: run-lines 2s linear infinite;
+  }

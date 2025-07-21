@@ -1,26 +1,35 @@
-/* Add this to your global CSS or component's stylesheet */
+/* Portfolio.css */
 
-/* Keyframes for the water flow effect */
-@keyframes waveFlow {
-    0% {
-      transform: scale(1) translateY(0);
-    }
-    50% {
-      transform: scale(1.05) translateY(-5px); /* Scale and move upwards like water flow */
-    }
-    100% {
-      transform: scale(1) translateY(0); /* Return to original position */
-    }
-  }
-  
-  /* Apply the wave effect on hover */
-  .group:hover img {
-    animation: waveFlow 4s ease-in-out infinite;
-    filter: blur(0.5px);  /* Slight blur for liquid feel */
-  }
-  
-  /* Optional - You can also add a slight blur effect to enhance the flowing water look */
-  .group:hover img {
-    filter: blur(0.8px);  /* Adds slight blur to the image during hover */
-  }
-  
+/* --- Futuristic Hexagonal Background --- */
+.futuristic-portfolio-bg {
+  position: relative;
+  background-color: #1D1D1D; /* Your bg-dblack */
+}
+
+.futuristic-portfolio-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  /* Creates a honeycomb pattern with a very faint dyellow color */
+  background-image: linear-gradient(rgba(255, 204, 0, 0.05) 1px, transparent 1px),
+                    linear-gradient(to right, rgba(255, 204, 0, 0.05) 1px, transparent 1px);
+  background-size: 3rem 5.2rem;
+  background-position: 0 0;
+  opacity: 0.5;
+}
+
+
+/* --- Glowing Tech-Panel Card Effect --- */
+.portfolio-card {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  background-color: rgba(255, 255, 255, 0.02);
+  transition: all 0.4s ease;
+}
+
+.portfolio-card:hover {
+  border-color: rgba(255, 204, 0, 0.8); /* Your dyellow color */
+  box-shadow: 0 0 25px rgba(255, 204, 0, 0.3);
+  transform: translateY(-8px); /* Lifts the card on hover */
+}
