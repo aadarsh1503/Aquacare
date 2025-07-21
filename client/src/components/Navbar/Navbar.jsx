@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'; // useEffect ko import karna zaroori hai
 import { AiOutlineInstagram, AiOutlineFacebook } from 'react-icons/ai';
 import { FaPhoneAlt, FaMapMarkerAlt, FaEnvelope, FaChevronDown } from 'react-icons/fa';
 import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
@@ -30,13 +30,37 @@ const Navbar = () => {
   const [isServicesHovered, setIsServicesHovered] = useState(false);
   const [isProjectsHovered, setIsProjectsHovered] = useState(false);
 
+  // --- NEW: useEffect to handle scroll behavior ---
   useEffect(() => {
-    // Handle scroll when landing on page with hash
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+
+      // Logic to determine scroll direction
+      // User is scrolling UP or is at the very top
+      const visible = prevScrollPos > currentScrollPos || currentScrollPos < 10;
+      setIsVisible(visible);
+
+      // Logic to change navbar background on scroll
+      setIsScrolled(currentScrollPos > 50);
+
+      // Update the previous scroll position
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    // Add event listener when component mounts
+    window.addEventListener('scroll', handleScroll);
+
+    // Remove event listener when component unmounts
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [prevScrollPos]); // Dependency array to run effect when prevScrollPos changes
+
+  useEffect(() => {
     if (location.pathname === '/' && window.location.hash) {
-      const section = window.location.hash.substring(1); // Remove the #
+      const section = window.location.hash.substring(1);
       const target = document.querySelector(`[data-section="${section}"]`);
       if (target) {
-        // Small timeout to ensure DOM is ready
         setTimeout(() => {
           target.scrollIntoView({ behavior: 'smooth' });
         }, 100);
@@ -46,15 +70,11 @@ const Navbar = () => {
 
   const scrollToSection = (section) => {
     if (location.pathname !== '/') {
-      // Navigate to home page with hash
       window.location.href = `/#${section}`;
-      // The actual scrolling will happen after the page loads
     } else {
-      // If already on home page, just scroll to section
       const target = document.querySelector(`[data-section="${section}"]`);
       if (target) {
         target.scrollIntoView({ behavior: 'smooth' });
-        // Update URL hash without page reload
         window.history.pushState(null, null, `#${section}`);
       }
     }
@@ -93,7 +113,7 @@ const Navbar = () => {
       }`}
     >
       {/* Top Navbar */}
-      <div className={`${isScrolled ? 'bg-dblack/30 backdrop-blur-md' : isSpecialPage ? 'bg-dblack' : 'bg-dblack/80 backdrop-blur-md'}`}>
+      <div className={`${isScrolled ? 'bg-dblack/80 backdrop-blur-md' : isSpecialPage ? 'bg-dblack' : 'bg-dblack/80 backdrop-blur-md'}`}>
         <div className='py-2 max-w-7xl mx-auto px-4'>
           <div className='flex flex-col md:flex-row justify-between items-center'>
             {/* Left Side: Mobile number and address */}
@@ -156,7 +176,7 @@ const Navbar = () => {
         <div className='container mx-auto max-w-7xl px-4 flex justify-between items-center'>
           {/* Logo */}
           <a href='/' className='flex items-center z-10'>
-            <img src="L1.png" alt='Logo' className='h-16 w-auto' />
+            <img src={logo} alt='Logo' className='h-16 w-auto' />
           </a>
 
           {/* Navbar Menu */}
@@ -169,11 +189,11 @@ const Navbar = () => {
                 Home
               </a>
               <button
-  onClick={() => scrollToSection('about')}
-  className={`transition-colors ${isSectionActive('about') ? '' : 'hover:text-gray-300'}`}
->
-  About Us
-</button>
+                onClick={() => scrollToSection('about')}
+                className={`transition-colors ${isSectionActive('about') ? '' : 'hover:text-gray-300'}`}
+              >
+                About Us
+              </button>
               
               {/* Projects Dropdown */}
               <div 
@@ -244,11 +264,11 @@ const Navbar = () => {
               </div>
               
               <button
-  onClick={() => scrollToSection('portfolio')}
-  className={`transition-colors ${isSectionActive('portfolio') ? '' : 'hover:text-gray-300'}`}
->
-  Portfolio
-</button>
+                onClick={() => scrollToSection('portfolio')}
+                className={`transition-colors ${isSectionActive('portfolio') ? '' : 'hover:text-gray-300'}`}
+              >
+                Portfolio
+              </button>
             </div>
 
             <div className='ml-8 font-poppins'>
