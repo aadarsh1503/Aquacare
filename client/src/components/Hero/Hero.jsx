@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import i1 from "./i1.jpg";
-import i2 from "./i2.jpg";
+import i2 from "./i2.jpg"; // This image is no longer used for the mobile background
 import i3 from "./i3.jpg";
 import i4 from "./i4.webp";
 import ig from "./ig.jpg"
@@ -50,13 +50,17 @@ const HeroSection = () => {
     return (
         <div>
             <div className="relative h-[700px] lg:h-screen overflow-hidden">
-                {/* Background images with motion */}
+                 {/* Black overlay for better text readability on all screens */}
+                 <div className="absolute inset-0 bg-black opacity-30 z-10"></div>
+
+                {/* Background images with motion (now visible on all screens) */}
                 {backgroundImages.map((image, index) => (
                     <motion.div
                         key={index}
-                        className={`absolute inset-0 bg-center bg-cover ${index === currentImageIndex ? 'z-0' : 'z-0'}`}
+                        // The z-index logic was a bit redundant, simplifying it
+                        className="absolute inset-0 bg-center bg-cover"
                         style={{ backgroundImage: `url(${image})` }}
-                        initial={{ opacity: 0 }}
+                        initial={{ opacity: 0, scale: 1.1 }}
                         animate={{ 
                             opacity: index === currentImageIndex ? 1 : 0,
                             scale: index === currentImageIndex ? 1 : 1.1
@@ -68,18 +72,18 @@ const HeroSection = () => {
                     />
                 ))}
                 
-                {/* For mobile screens */}
-                <div className="lg:hidden absolute inset-0 bg-fill" style={{ backgroundImage: `url(${i2})` }}></div>
+                {/* REMOVED: The mobile-only static background div is now gone */}
+                {/* <div className="lg:hidden absolute inset-0 bg-fill" style={{ backgroundImage: `url(${i2})` }}></div> */}
                 
                 {/* Main container with content at bottom */}
                 <motion.div 
-                    className="absolute inset-0 flex flex-col justify-end pb-12 lg:pb-24 px-4 md:px-8 lg:px-12"
+                    className="absolute inset-0 flex flex-col justify-end pb-12 lg:bottom-0 bottom-32 lg:pb-24 px-4 md:px-8 lg:px-12 z-20"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5, duration: 1 }}
                 >
                     {/* Content Container */}
-                    <div className="flex flex-col lg:flex-row justify-between w-full">
+                    <div className="flex flex-col lg:flex-row justify-between w-full items-end">
                         {/* Left Content */}
                         <motion.div 
                             className="w-full lg:w-1/2 mb-8 lg:mb-0"
@@ -94,18 +98,18 @@ const HeroSection = () => {
                 
                         {/* Right Content */}
                         <motion.div 
-                            className="w-full lg:w-1/2 flex flex-col space-y-4 lg:space-y-6 lg:items-end"
+                            className="w-full lg:w-1/2 flex flex-col space-y-4 lg:space-y-6 items-start lg:items-end"
                             initial={{ x: 100, opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
                             transition={{ duration: 0.8 }}
                         >
-                            <p className="text-gray-100 lg:hidden text-base md:text-lg">
-                                AQUA CARE, A PROFESSIONAL PLUMBING AND QUALITY SERVICE WITH REASONABLE PRICE
+                            {/* UNIFIED TEXT: This single paragraph now works for all screen sizes */}
+                            <p className="text-gray-100 text-base md:text-lg mb-2 font-semibold relative lg:text-right">
+                                AQUA CARE – PROFESSIONAL <br />& QUALITY SERVICE AT A<br /> REASONABLE PRICE
                             </p>
+                            
+                            {/* UNIFIED BUTTONS: No structural changes needed here */}
                             <div className="space-x-4">
-                                <p className="text-gray-100 text-base md:text-lg mb-6 ml-4 font-semibold relative hidden lg:block">
-                                    AQUA CARE – PROFESSIONAL <br />& QUALITY SERVICE AT A<br /> REASONABLE PRICE
-                                </p>
                                 <motion.a 
                                     href='/recent-Projects'
                                     whileHover={{ scale: 1.05 }}
